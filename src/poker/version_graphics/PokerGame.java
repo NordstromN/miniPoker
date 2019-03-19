@@ -14,7 +14,7 @@ public class PokerGame extends Application {
 	
     public static void main(String[] args) {
         launch();
-        //De Dominik isch en Schwule Hund!
+        
     }
 
     @Override
