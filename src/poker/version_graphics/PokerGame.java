@@ -1,4 +1,4 @@
-package poker.version_graphics;
+  package poker.version_graphics;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -14,6 +14,7 @@ public class PokerGame extends Application {
 	
     public static void main(String[] args) {
         launch();
+        //De Dominik isch en Schwule Hund!
     }
 
     @Override
