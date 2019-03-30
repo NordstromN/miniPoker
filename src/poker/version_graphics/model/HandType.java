@@ -99,9 +99,9 @@ public enum HandType {
     public static boolean isFourOfAKind(ArrayList<Card> cards) {
     	boolean fourOfAKindFound = false;    	
     	
-    	for (int i = 0; i<cards.size()-2; i++) {
-    		for (int j = i+1; j<cards.size()-1; j++) {
-    			for (int k = j+1; k<cards.size(); k++) {
+    	for (int i = 0; i<cards.size()-3; i++) {
+    		for (int j = i+1; j<cards.size()-2; j++) {
+    			for (int k = j+1; k<cards.size()-1; k++) {
     				for (int l = k+1; l<cards.size(); l++) {
     					if (cards.get(i).getRank() == cards.get(j).getRank() &&
         						cards.get(j).getRank() == cards.get(k).getRank() &&
