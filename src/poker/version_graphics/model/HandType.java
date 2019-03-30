@@ -2,7 +2,7 @@ package poker.version_graphics.model;
 
 import java.util.ArrayList;
 
-public enum HandType {
+public enum HandType implements Comparable<HandType>{
     HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush;
     
     /**
