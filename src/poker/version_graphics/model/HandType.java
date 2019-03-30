@@ -98,8 +98,27 @@ public enum HandType {
     }
     
     public static boolean isFullHouse(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+        // Clone the cards, because we will be altering the list
+        ArrayList<Card> clonedCards = (ArrayList<Card>) cards.clone();
+
+        // Find three of a kind; if found, remove the cards from the list
+        boolean threeOfAKindFound = false;
+        boolean twoOfAKindFound = false;
+        for (int i = 0; i < clonedCards.size() - 1 && !threeOfAKindFound; i++) {
+            for (int j = i+1; j < clonedCards.size() && !threeOfAKindFound; j++) {
+               for (int k = j+1; k < clonedCards.size() && !threeOfAKindFound; k++) {
+            	   if (clonedCards.get(i).getRank() == clonedCards.get(j).getRank()
+            			   && clonedCards.get(j).getRank() == clonedCards.get(k).getRank()) {
+                   	   threeOfAKindFound = true;
+                   	   clonedCards.remove(k);  // Remove the latest card
+                       clonedCards.remove(j);  // Remove the later card
+                       clonedCards.remove(i);  // Before the earlier one   
+            	   }
+                }
+            }
+        }
+        // If a three of a kind found, see if there is a second pair
+        return threeOfAKindFound && isOnePair(clonedCards);
     }
     
     public static boolean isFourOfAKind(ArrayList<Card> cards) {
