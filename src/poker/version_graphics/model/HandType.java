@@ -54,8 +54,22 @@ public enum HandType {
     }
     
     public static boolean isThreeOfAKind(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+        
+    	boolean threeOfAKindFound = false;
+    	
+    	for (int i = 0; i<cards.size()-2; i++) {
+    		for (int j = i+1; j<cards.size()-1; j++) {
+    			for (int k = j+1; k<cards.size(); k++) {
+    		
+    				if (cards.get(i).getRank() == cards.get(j).getRank() &&
+    						cards.get(j).getRank() == cards.get(k).getRank()) {
+    					threeOfAKindFound = true;
+    				}
+    			}
+    		}
+    	}      
+        return threeOfAKindFound;
+    	
     }
     
     public static boolean isStraight(ArrayList<Card> cards) {
@@ -74,8 +88,22 @@ public enum HandType {
     }
     
     public static boolean isFourOfAKind(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+    	boolean fourOfAKindFound = false;    	
+    	
+    	for (int i = 0; i<cards.size()-2; i++) {
+    		for (int j = i+1; j<cards.size()-1; j++) {
+    			for (int k = j+1; k<cards.size(); k++) {
+    				for (int l = k+1; l<cards.size(); l++) {
+    					if (cards.get(i).getRank() == cards.get(j).getRank() &&
+        						cards.get(j).getRank() == cards.get(k).getRank() &&
+        						cards.get(k).getRank() == cards.get(l).getRank()) {
+        					fourOfAKindFound = true;			
+    					}
+    				}
+    			}
+    		}
+    	}      
+        return fourOfAKindFound;
     }
     
     public static boolean isStraightFlush(ArrayList<Card> cards) {
