@@ -82,7 +82,8 @@ public class Card implements Comparable<Card> {
 	//compares the rank with other cards rank
 	public int compareTo(Card otherCard) {
 		
-		return Integer.compare(this.rank.getRank(), otherCard.rank.getRank());
+		return Integer.compare(this.rank.getRankValue(), otherCard.rank.getRankValue());
+				
 		
 		/*
 		if(this.rank.getRank()<otherCard.rank.getRank()){
@@ -97,6 +98,6 @@ public class Card implements Comparable<Card> {
 	
 	//equals is true, if suit matches with other card
 	public boolean equals (Card otherCard) {		
-		return otherCard.getSuit().equals(this.suit);
+		return otherCard.getSuit().equals(this.getSuit());
 	}
 }

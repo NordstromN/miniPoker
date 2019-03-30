@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public enum HandType {
-    HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush;
+    HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush;
     
     /**
      * Determine the value of this hand. Note that this does not
@@ -22,6 +22,7 @@ public enum HandType {
         if (isFullHouse(cards)) currentEval = FullHouse;
         if (isFourOfAKind(cards)) currentEval = FourOfAKind;
         if (isStraightFlush(cards)) currentEval = StraightFlush;
+        if (isRoyalFlush(cards)) currentEval = RoyalFlush;
         
         return currentEval;
     }
@@ -87,8 +88,13 @@ public enum HandType {
     }
     
     public static boolean isFlush(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+    	// equals method from Class Card
+    	return(
+    			cards.get(0).equals(cards.get(1))
+    			&& cards.get(1).equals(cards.get(2))
+    			&& cards.get(2).equals(cards.get(3))
+    			&& cards.get(3).equals(cards.get(4))
+    			); 	
     }
     
     public static boolean isFullHouse(ArrayList<Card> cards) {
@@ -115,9 +121,15 @@ public enum HandType {
         return fourOfAKindFound;
     }
     
-    public static boolean isStraightFlush(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+    public static boolean isStraightFlush(ArrayList<Card> cards) {        
+    	return isFlush(cards) && isStraight(cards);
+    }
+    
+    public static boolean isRoyalFlush(ArrayList<Card> cards) {
+    	return (
+    			//Highest Card of StraightFlush must be Ace -> Value 14
+    			isStraightFlush(cards)
+    			&& sortCards(cards).get(4).getRank().getRankValue() == 14);
     }
     
     //Sorts the cards
