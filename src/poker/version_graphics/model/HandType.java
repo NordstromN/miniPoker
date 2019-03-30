@@ -1,8 +1,10 @@
 package poker.version_graphics.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-public enum HandType implements Comparable<HandType>{
+public enum HandType {
     HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush;
     
     /**
@@ -73,8 +75,15 @@ public enum HandType implements Comparable<HandType>{
     }
     
     public static boolean isStraight(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+        ArrayList<Card> sortedArray = sortCards(cards);
+    	
+        // subtracts value of lowest card rank with highest card rank, if
+        // value equals 4, than it is a straight, in other case not
+        
+        int highCard = sortedArray.get(4).getRank().getRankValue();
+        int lowCard = sortedArray.get(0).getRank().getRankValue();
+        
+        return ((highCard - lowCard)==4); 
     }
     
     public static boolean isFlush(ArrayList<Card> cards) {
@@ -109,5 +118,20 @@ public enum HandType implements Comparable<HandType>{
     public static boolean isStraightFlush(ArrayList<Card> cards) {
         // TODO        
         return false;
+    }
+    
+    //Sorts the cards
+    public static ArrayList<Card> sortCards(ArrayList<Card> cards){
+    	ArrayList<Card> sortedCards = cards;
+    	
+    	Collections.sort(sortedCards, new Comparator<Card>()
+    			{
+    			public int compare(Card c1, Card c2)
+    			{
+    				return Integer.valueOf(c1.getRank().getRankValue())
+    						.compareTo(c2.getRank().getRankValue());
+    			}
+    			});
+    	return sortedCards;
     }
 }
