@@ -1,6 +1,7 @@
 package poker.version_graphics.view;
 
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -8,7 +9,7 @@ import poker.version_graphics.model.Card;
 import poker.version_graphics.model.HandType;
 import poker.version_graphics.model.Player;
 
-public class PlayerPane extends VBox {
+public class PlayerPane extends GridPane {
     private Label lblName = new Label();
     private HBox hboxCards = new HBox();
     private Label lblEvaluation = new Label("--");
@@ -20,8 +21,14 @@ public class PlayerPane extends VBox {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class
         
+        
         // Add child nodes
-        this.getChildren().addAll(lblName, hboxCards, lblEvaluation);
+       // this.getChildren().addAll(lblName, hboxCards, lblEvaluation);
+        this.add(lblName, 5, 1);
+        this.add(hboxCards, 5, 5);
+        this.add(lblEvaluation, 5, 8);
+        
+        
         
         // Add CardLabels for the cards
         for (int i = 0; i < 5; i++) {

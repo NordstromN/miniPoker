@@ -5,17 +5,25 @@
   	-fx-alignment: center;
 }
 
+.root{
+	-fx-background-color: lightgrey;
+	
+}
+
 #controlArea {
-    -fx-spacing: 15.0px;
+    -fx-spacing: 10.0px;
     -fx-padding: 5.0px;
-    -fx-border-color: black;
-    -fx-border-width: 2.0px;
+    -fx-alignment: center;
+    -fx-background-color: lightgrey;
 }
 
 .player {
 	-fx-padding: 5.0px;
     -fx-border-color: black;
-    -fx-border-width: 2.0px;
+    -fx-border-width: 1.0px;
+	-fx-alignment: center;
+	 -fx-background-color: lightgreen;
+	 -fx-background-image: url("background.png")
 }
 
 .card {
@@ -23,11 +31,11 @@
 	-fx-padding: 2.0px;
     -fx-border-color: black;
     -fx-border-width: 1.0px;
-	-fx-background-color: lemonchiffon;
     -fx-min-width: 50;
     -fx-pref-width: 111;
     -fx-max-width: 500;
     -fx-min-height: 80;
     -fx-pref-height: 162;
     -fx-max-height: 800;
+
 }

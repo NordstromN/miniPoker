@@ -1,10 +1,6 @@
 package poker.version_graphics.model;
 
-import static org.junit.Assert.*;
 import java.util.ArrayList;
-
-import org.junit.Before;
-import org.junit.Test;
 
 public class HandTypeTest {
 	// We define the hands using abbreviations. The code at the bottom
@@ -44,7 +40,6 @@ public class HandTypeTest {
 	 * and prepares the translated hands. We recreate these for
 	 * each test method, in case the test method damages the data.
 	 */
-	@Before
 	public void makeHands() {
 		highCardHands = makeHands(highCards);
 		pairHands = makeHands(pairs);
@@ -56,10 +51,9 @@ public class HandTypeTest {
 	 * We expect all HighCard hands to be false, all OnePair hands to
 	 * be true, all TwoPair hands to be true, etc.
 	 */
-	@Test
 	public void testIsOnePair() {
 		for (ArrayList<Card> hand : highCardHands) {
-			assertFalse(HandType.isOnePair(hand));
+				(HandType.isOnePair(hand));
 		}
 		for (ArrayList<Card> hand : pairHands) {
 			assertTrue(HandType.isOnePair(hand));
@@ -72,7 +66,7 @@ public class HandTypeTest {
 	/**
 	 * This is the test method for the isTwoPair in HandType.
 	 */
-	@Test
+	
 	public void testIsTwoPair() {
 		for (ArrayList<Card> hand : highCardHands) {
 			assertFalse(HandType.isTwoPair(hand));
