@@ -2,6 +2,8 @@ package poker.version_graphics.model;
 
 import java.util.ArrayList;
 
+import poker.version_graphics.model.Round.Status;
+
 public class Player implements Comparable<Player> {
     public static final int HAND_SIZE = 5;
     
@@ -12,8 +14,13 @@ public class Player implements Comparable<Player> {
     private HandType handType;
     
     public Player(String playerName) {
-        this.playerName = playerName;
-        
+        this.playerName = playerName;       
+    }
+    
+    public void addCardsToHistory(ArrayList<Card> cards) {
+    	//TODO round Won, loss, even
+    	Round round = new Round(cards, Status.won);
+    	history.addRound(round);
     }
 
     public String getPlayerName() {

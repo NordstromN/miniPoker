@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class History {
 	
-	private ArrayList<Round> rounds;;
+	private ArrayList<Round> rounds;
 	private int wonSum = 0;
 	private int lossSum = 0;
 	private int evenSum = 0;

@@ -56,7 +56,8 @@ public class DeckOfCards {
      * This is an example of conditional assignment
      */
     public Card dealCard() {
-        Card card = (cards.size() > 0) ? cards.remove(cards.size()-1) : null;
+     
+    	Card card = (cards.size() > 0) ? cards.remove(cards.size()-1) : null;
         cardsRemaining.setValue(cards.size());
         return card;
     }
