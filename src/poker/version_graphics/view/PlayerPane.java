@@ -24,9 +24,9 @@ public class PlayerPane extends GridPane {
         
         // Add child nodes
        // this.getChildren().addAll(lblName, hboxCards, lblEvaluation);
-        this.add(lblName, 5, 1);
-        this.add(hboxCards, 5, 5);
-        this.add(lblEvaluation, 5, 8);
+        this.add(lblName, 640, 200);
+        this.add(hboxCards, 640, 300);
+        this.add(lblEvaluation, 640, 400);
         
         
         

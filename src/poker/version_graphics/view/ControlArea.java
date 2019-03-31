@@ -20,7 +20,7 @@ public class ControlArea extends VBox{
     	this.getChildren().addAll(lblDeck, spacer, btnShufDea, btnShuffle, btnDeal);
 
         HBox.setHgrow(spacer, Priority.ALWAYS); // Use region to absorb resizing
-        this.setId("controlArea"); // Unique ID in the CSS
+        this.setId("button"); // Unique ID in the CSS
     }
     
     public void linkDeck(DeckOfCards deck) {

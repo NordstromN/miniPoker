@@ -6,36 +6,58 @@
 }
 
 .root{
-	-fx-background-color: lightgrey;
 	
+	-fx-background-image: url(/poker/images/background.png);
 }
 
 #controlArea {
+    
+   -fx-font-size: 15px;
+  	-fx-font-weight: bold;
+	-fx-text-fill: #800000;
+	-fx-border-style: solid;
     -fx-spacing: 10.0px;
     -fx-padding: 5.0px;
     -fx-alignment: center;
-    -fx-background-color: lightgrey;
+ 
 }
+
+.button {
+    
+   -fx-min-width: 180.0;
+   -fx-max-width: 180.0;
+   -fx-min-height: 50.0;
+   -fx-max-height: 50.0;
+   -fx-font-size: 15px;
+   -fx-border-style: solid;
+    -fx-border-color: white;
+  	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-background-color: black;
+	-fx-spacing: 10.0px;
+    -fx-padding: 5.0px;
+    -fx-alignment: center;
+ 
+}
+
+
 
 .player {
 	-fx-padding: 5.0px;
-    -fx-border-color: black;
-    -fx-border-width: 1.0px;
-	-fx-alignment: center;
-	 -fx-background-color: lightgreen;
-	 -fx-background-image: url("background.png")
+    -fx-alignment: center;
+	
 }
 
 .card {
   -fx-font-size: 18px;
-	-fx-padding: 2.0px;
-    -fx-border-color: black;
-    -fx-border-width: 1.0px;
-    -fx-min-width: 50;
-    -fx-pref-width: 111;
-    -fx-max-width: 500;
-    -fx-min-height: 80;
-    -fx-pref-height: 162;
-    -fx-max-height: 800;
+	-fx-padding: 25.0px;
+    -fx-border-color: none;
+    -fx-border-width: 15.0px;
+    -fx-min-width: 88;
+    -fx-max-width: 88;
+    -fx-min-height: 125;
+    -fx-max-height: 125;
+    -fx-background-image: url(/poker/images/panda.png);
+	-fx-background-size: cover;
 
 }

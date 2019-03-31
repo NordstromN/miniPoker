@@ -5,6 +5,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -24,7 +31,7 @@ public class PokerGameView {
 	public PokerGameView(Stage stage, PokerGameModel model) {
 		this.model = model;
 		
-			
+		
 		// Create all of the player panes we need, and put them into an HBox
 		players = new VBox();
 		for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
@@ -44,18 +51,17 @@ public class PokerGameView {
 		botPane = new BottomPane();
 				
 		
-		// Create root and give it the casino design
+		// Create root and set size
 		BorderPane root = new BorderPane();
-		root.setMinSize(800, 600);
-		root.setMaxSize(800, 600);
-						
-		
-		
-		// Put players and controls into a BorderPane
+
+		root.setMinSize(1280, 800);
+		root.setMaxSize(1280, 800);
+					
+		// Put menu, players and controls into a BorderPane
 		root.setTop(menuBar);
 		root.setCenter(players);
 		root.setBottom(botPane);
-		
+				
 		// Disallow resizing - which is difficult to get right with images
 		stage.setResizable(false);
 

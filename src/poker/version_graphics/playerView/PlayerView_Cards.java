@@ -30,9 +30,9 @@ public class PlayerView_Cards extends HBox{
 		for(int i=0; i<=4; i++) {
 			
 			Rectangle rectangle = new Rectangle(30, 50);
-			rectangle.setFill(Color.SANDYBROWN);
+			rectangle.setFill(Color.PINK);
 			rectangle.setStroke(Color.GREY);
-			rectangle.setStyle("-fx-border-radius: 200;");
+			rectangle.setStyle("-fx-border-radius: 500;");
 			cardField.getChildren().add(rectangle);
 		}
 		
