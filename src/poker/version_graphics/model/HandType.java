@@ -76,15 +76,17 @@ public enum HandType {
     }
     
     public static boolean isStraight(ArrayList<Card> cards) {
-        ArrayList<Card> sortedArray = sortCards(cards);
-    	
-        // subtracts value of lowest card rank with highest card rank, if
-        // value equals 4, than it is a straight, in other case not
-        
-        int highCard = sortedArray.get(4).getRank().getRankValue();
-        int lowCard = sortedArray.get(0).getRank().getRankValue();
-        
-        return ((highCard - lowCard)==4); 
+    	// Sort Array
+    	ArrayList<Card> sortedArray = sortCards(cards);
+        int count = 0;
+        // check if next card is Rank +1, if 4 Times true, than it is a straight
+        for (int i = 0; i < 4; i++) {
+        	if((sortedArray.get(i).getRank().getRankValue()+1)
+        			== sortedArray.get(i+1).getRank().getRankValue()) {
+        		count ++;
+        	}
+        }
+    	return (count==4);
     }
     
     public static boolean isFlush(ArrayList<Card> cards) {
