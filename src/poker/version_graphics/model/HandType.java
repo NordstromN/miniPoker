@@ -1,9 +1,11 @@
 package poker.version_graphics.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public enum HandType {
-    HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush;
+    HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush;
     
     /**
      * Determine the value of this hand. Note that this does not
@@ -20,6 +22,7 @@ public enum HandType {
         if (isFullHouse(cards)) currentEval = FullHouse;
         if (isFourOfAKind(cards)) currentEval = FourOfAKind;
         if (isStraightFlush(cards)) currentEval = StraightFlush;
+        if (isRoyalFlush(cards)) currentEval = RoyalFlush;
         
         return currentEval;
     }
@@ -73,26 +76,59 @@ public enum HandType {
     }
     
     public static boolean isStraight(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+    	// Sort Array
+    	ArrayList<Card> sortedArray = sortCards(cards);
+        int count = 0;
+        // check if next card is Rank +1, if 4 Times true, than it is a straight
+        for (int i = 0; i < 4; i++) {
+        	if((sortedArray.get(i).getRank().getRankValue()+1)
+        			== sortedArray.get(i+1).getRank().getRankValue()) {
+        		count ++;
+        	}
+        }
+    	return (count==4);
     }
     
     public static boolean isFlush(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+    	// equals method from Class Card
+    	return(
+    			cards.get(0).equals(cards.get(1))
+    			&& cards.get(1).equals(cards.get(2))
+    			&& cards.get(2).equals(cards.get(3))
+    			&& cards.get(3).equals(cards.get(4))
+    			); 	
     }
     
     public static boolean isFullHouse(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+        // Clone the cards, because we will be altering the list
+        ArrayList<Card> clonedCards = (ArrayList<Card>) cards.clone();
+
+        // Find three of a kind; if found, remove the cards from the list
+        boolean threeOfAKindFound = false;
+        boolean twoOfAKindFound = false;
+        for (int i = 0; i < clonedCards.size() - 1 && !threeOfAKindFound; i++) {
+            for (int j = i+1; j < clonedCards.size() && !threeOfAKindFound; j++) {
+               for (int k = j+1; k < clonedCards.size() && !threeOfAKindFound; k++) {
+            	   if (clonedCards.get(i).getRank() == clonedCards.get(j).getRank()
+            			   && clonedCards.get(j).getRank() == clonedCards.get(k).getRank()) {
+                   	   threeOfAKindFound = true;
+                   	   clonedCards.remove(k);  // Remove the latest card
+                       clonedCards.remove(j);  // Remove the later card
+                       clonedCards.remove(i);  // Before the earlier one   
+            	   }
+                }
+            }
+        }
+        // If a three of a kind found, see if there is a second pair
+        return threeOfAKindFound && isOnePair(clonedCards);
     }
     
     public static boolean isFourOfAKind(ArrayList<Card> cards) {
     	boolean fourOfAKindFound = false;    	
     	
-    	for (int i = 0; i<cards.size()-2; i++) {
-    		for (int j = i+1; j<cards.size()-1; j++) {
-    			for (int k = j+1; k<cards.size(); k++) {
+    	for (int i = 0; i<cards.size()-3; i++) {
+    		for (int j = i+1; j<cards.size()-2; j++) {
+    			for (int k = j+1; k<cards.size()-1; k++) {
     				for (int l = k+1; l<cards.size(); l++) {
     					if (cards.get(i).getRank() == cards.get(j).getRank() &&
         						cards.get(j).getRank() == cards.get(k).getRank() &&
@@ -106,8 +142,29 @@ public enum HandType {
         return fourOfAKindFound;
     }
     
-    public static boolean isStraightFlush(ArrayList<Card> cards) {
-        // TODO        
-        return false;
+    public static boolean isStraightFlush(ArrayList<Card> cards) {        
+    	return isFlush(cards) && isStraight(cards);
+    }
+    
+    public static boolean isRoyalFlush(ArrayList<Card> cards) {
+    	return (
+    			//Highest Card of StraightFlush must be Ace -> Value 14
+    			isStraightFlush(cards)
+    			&& sortCards(cards).get(4).getRank().getRankValue() == 14);
+    }
+    
+    //Sorts the cards
+    public static ArrayList<Card> sortCards(ArrayList<Card> cards){
+    	ArrayList<Card> sortedCards = cards;
+    	
+    	Collections.sort(sortedCards, new Comparator<Card>()
+    			{
+    			public int compare(Card c1, Card c2)
+    			{
+    				return Integer.valueOf(c1.getRank().getRankValue())
+    						.compareTo(c2.getRank().getRankValue());
+    			}
+    			});
+    	return sortedCards;
     }
 }

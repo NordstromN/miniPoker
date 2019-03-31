@@ -22,14 +22,17 @@ public class PokerGameController {
 		view.getDealButton().setOnAction( e -> deal() );
 	}
 	
-
-
+	
+	
     /**
      * Remove all cards from players hands, and shuffle the deck
      */
     private void shuffle() {
     	for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
     		Player p = model.getPlayer(i);
+    		if(p.getCards().size()==5) {
+    			p.addCardsToHistory(p.getCards());
+    		}
     		p.discardHand();
     		PlayerPane pp = view.getPlayerPane(i);
     		pp.updatePlayerDisplay();
@@ -47,6 +50,9 @@ public class PokerGameController {
     	if (cardsRequired <= deck.getCardsRemaining()) {
         	for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
         		Player p = model.getPlayer(i);
+        		if(p.getCards().size()==5) {
+        			p.addCardsToHistory(p.getCards());
+        		}
         		p.discardHand();
         		for (int j = 0; j < Player.HAND_SIZE; j++) {
         			Card card = deck.dealCard();

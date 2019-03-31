@@ -2,15 +2,25 @@ package poker.version_graphics.model;
 
 import java.util.ArrayList;
 
+import poker.version_graphics.model.Round.Status;
+
 public class Player implements Comparable<Player> {
     public static final int HAND_SIZE = 5;
+    
+    private History history = new History();
     
     private final String playerName; // This is the ID
     private final ArrayList<Card> cards = new ArrayList<>();
     private HandType handType;
     
     public Player(String playerName) {
-        this.playerName = playerName;
+        this.playerName = playerName;       
+    }
+    
+    public void addCardsToHistory(ArrayList<Card> cards) {
+    	//TODO round Won, loss, even
+    	Round round = new Round(cards, Status.won);
+    	history.addRound(round);
     }
 
     public String getPlayerName() {
@@ -52,4 +62,21 @@ public class Player implements Comparable<Player> {
     public int compareTo(Player o) {
         return handType.compareTo(o.handType);
     }
+    
+    // TEST Methoden delete
+    
+    public void addCard(Card c1, Card c2, Card c3, Card c4, Card c5) {
+    	cards.add(c1);   
+    	cards.add(c2);   
+    	cards.add(c3);   
+    	cards.add(c4);   
+    	cards.add(c5);   
+    }
+    
+    public void printCard() {
+    	for (Card currentCard : cards) {
+    		System.out.println(currentCard);
+    	}
+    }
+    
 }
