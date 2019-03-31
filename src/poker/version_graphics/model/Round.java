@@ -25,6 +25,17 @@ public class Round {
 	
 	public Status getStatus() {
 		return this.status;
-	}		
+	}
+	
+	public String toString() {
+		String cardString = "";
+		for (Card currentCard : cards) {
+			cardString += currentCard +" ";
+		}
+		cardString +="\n\n"+HandType.evaluateHand(cards);
+		cardString +="\n\n"+this.status;
+		
+		return cardString;
+	}
 
 }

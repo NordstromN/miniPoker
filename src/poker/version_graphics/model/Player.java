@@ -5,12 +5,15 @@ import java.util.ArrayList;
 public class Player implements Comparable<Player> {
     public static final int HAND_SIZE = 5;
     
+    private History history = new History();
+    
     private final String playerName; // This is the ID
     private final ArrayList<Card> cards = new ArrayList<>();
     private HandType handType;
     
     public Player(String playerName) {
         this.playerName = playerName;
+        
     }
 
     public String getPlayerName() {
