@@ -22,7 +22,7 @@ public class PokerGameController {
 		
 		view.getShuffleButton().setOnAction(e -> shuffle());
 		view.getDealButton().setOnAction(e -> deal());
-		view.getShuffleButton().addEventHandler(ActionEvent.ACTION, (e)-> {
+		view.getShufDeaButton().addEventHandler(ActionEvent.ACTION, (e)-> {
 			shuffle();
 			deal();	
 		});

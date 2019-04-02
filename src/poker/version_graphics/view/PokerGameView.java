@@ -2,20 +2,7 @@ package poker.version_graphics.view;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import poker.version_graphics.PokerGame;
@@ -24,7 +11,6 @@ import poker.version_graphics.model.PokerGameModel;
 public class PokerGameView {
 	private VBox players;
 	private ControlArea controls;
-	private BottomPane botPane;
 	private MenBar menuBar;
 	private PokerGameModel model;
 	
@@ -40,28 +26,27 @@ public class PokerGameView {
 			players.getChildren().add(pp);
 		}
 		
-		//create the MenuBar
-		menuBar = new MenBar();
 		
 		// Create the control area
 		controls = new ControlArea();
 		controls.linkDeck(model.getDeck()); // link DeckLabel to DeckOfCards in the logic
 	
-		//create the bottomPane area
-		botPane = new BottomPane();
-				
 		
+		//create the MenuBar
+		menuBar = new MenBar();
+
 		// Create root and set size
 		BorderPane root = new BorderPane();
-
-		root.setMinSize(1280, 800);
-		root.setMaxSize(1280, 800);
-					
+	
+		
 		// Put menu, players and controls into a BorderPane
 		root.setTop(menuBar);
 		root.setCenter(players);
-		root.setBottom(botPane);
-				
+		root.setBottom(controls);
+		root.setMinSize(1280, 800);
+		root.setMaxSize(1280, 800);	
+		
+		
 		// Disallow resizing - which is difficult to get right with images
 		stage.setResizable(false);
 
@@ -90,8 +75,5 @@ public class PokerGameView {
 		return controls.btnShufDea;
 	}
 	
+	}
 	
-	
-	
-	
-}

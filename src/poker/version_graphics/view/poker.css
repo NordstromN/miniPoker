@@ -1,5 +1,7 @@
 .label {
 	-fx-padding: 5.0px;
+	 -fx-font-size: 20px;
+	-fx-font-weight: bold;
     -fx-min-width: 200.0;
     -fx-max-width: 2000.0;
   	-fx-alignment: center;
@@ -8,7 +10,15 @@
 .root{
 	
 	-fx-background-image: url(/poker/images/background.png);
+	
 }
+
+#root2{
+	
+	-fx-background-image: url(/poker/images/back.png);
+	
+}
+
 
 #controlArea {
     
@@ -16,8 +26,6 @@
   	-fx-font-weight: bold;
 	-fx-text-fill: #800000;
 	-fx-border-style: solid;
-    -fx-spacing: 10.0px;
-    -fx-padding: 5.0px;
     -fx-alignment: center;
  
 }
@@ -34,8 +42,8 @@
   	-fx-font-weight: bold;
 	-fx-text-fill: white;
 	-fx-background-color: black;
-	-fx-spacing: 10.0px;
-    -fx-padding: 5.0px;
+	-fx-spacing: 50.0px;
+    -fx-padding: 3.0px;
     -fx-alignment: center;
  
 }
@@ -50,14 +58,10 @@
 
 .card {
   -fx-font-size: 18px;
-	-fx-padding: 25.0px;
-    -fx-border-color: none;
-    -fx-border-width: 15.0px;
-    -fx-min-width: 88;
-    -fx-max-width: 88;
-    -fx-min-height: 125;
-    -fx-max-height: 125;
-    -fx-background-image: url(/poker/images/panda.png);
-	-fx-background-size: cover;
+	-fx-border-width: 1.0px;
+    -fx-min-width: 110;
+    -fx-max-width: 110;
+    -fx-min-height: 160;
+    -fx-max-height: 160;
 
 }
