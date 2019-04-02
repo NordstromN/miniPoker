@@ -2,30 +2,43 @@ package poker.version_graphics.controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
 import poker.version_graphics.PokerGame;
 import poker.version_graphics.model.Card;
 import poker.version_graphics.model.DeckOfCards;
 import poker.version_graphics.model.Player;
 import poker.version_graphics.model.PokerGameModel;
+import poker.version_graphics.view.MenBar;
 import poker.version_graphics.view.PlayerPane;
 import poker.version_graphics.view.PokerGameView;
 
 public class PokerGameController {
 	private PokerGameModel model;
 	private PokerGameView view;
+	private MenBar menBar;
 	
-	public PokerGameController(PokerGameModel model, PokerGameView view) {
+	public PokerGameController(PokerGameModel model, PokerGameView view, MenBar menBar) {
 		this.model = model;
 		this.view = view;
+		this.menBar = menBar;
 
-		
+		//Buttons in der View eine Action gibt
 		view.getShuffleButton().setOnAction(e -> shuffle());
 		view.getDealButton().setOnAction(e -> deal());
 		view.getShufDeaButton().addEventHandler(ActionEvent.ACTION, (e)-> {
 			shuffle();
 			deal();	
-		});
+		
+		
+		//Zusätzlicher Spieler erfassen
+		menBar.getChangPl().setOnAction(e ->
+				
+
+		
+			
+		
+
 					
 	}
 	
