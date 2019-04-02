@@ -2,13 +2,19 @@ package poker.version_graphics.model;
 
 import java.util.ArrayList;
 
-import poker.version_graphics.model.Round.Status;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Player implements Comparable<Player> {
     public static final int HAND_SIZE = 5;
     
-    private History history = new History();
+    private ArrayList<Hand> history = null;
+    //
     
+    private ObservableList<Hand> obsList= FXCollections.observableArrayList();
+    
+    //
+    private int won = 0;
     private final String playerName; // This is the ID
     private final ArrayList<Card> cards = new ArrayList<>();
     private HandType handType;
@@ -17,10 +23,16 @@ public class Player implements Comparable<Player> {
         this.playerName = playerName;       
     }
     
-    public void addCardsToHistory(ArrayList<Card> cards) {
+    public void addCardsToHistory() {
     	//TODO round Won, loss, even
-    	Round round = new Round(cards, Status.won);
-    	history.addRound(round);
+    	Hand hand = new Hand(this.cards, Status.won);
+    	this.history.add(hand);
+    	obsList.clear();
+    	obsList.addAll(this.history);
+    }
+    
+    public ObservableList<Hand> getObservableList(){
+    	return this.obsList;
     }
 
     public String getPlayerName() {

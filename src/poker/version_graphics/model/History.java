@@ -16,6 +16,7 @@ public class History {
 	
 	public void addRound(Round round) {
 		this.rounds.add(round);
+		this.roundsCount++;
 	}
 	
 	public String toString() {

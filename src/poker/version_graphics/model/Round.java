@@ -6,11 +6,6 @@ public class Round {
 	
 	private ArrayList<Card> cards	= new ArrayList<Card>();
 	
-    public enum Status { 
-    	won, 
-    	loss, 
-    	even;
-    };
     
 	private Status status;
     
