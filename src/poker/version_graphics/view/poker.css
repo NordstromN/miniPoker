@@ -48,6 +48,24 @@
  
 }
 
+.button:hover {
+    
+   -fx-min-width: 180.0;
+   -fx-max-width: 180.0;
+   -fx-min-height: 50.0;
+   -fx-max-height: 50.0;
+   -fx-font-size: 15px;
+   -fx-border-style: solid;
+    -fx-border-color: white;
+  	-fx-font-weight: bold;
+	-fx-text-fill: black;
+	-fx-background-color: red;
+	-fx-spacing: 50.0px;
+    -fx-padding: 3.0px;
+    -fx-alignment: center;
+ 
+}
+
 
 
 .player {

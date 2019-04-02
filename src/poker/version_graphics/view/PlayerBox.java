@@ -48,12 +48,14 @@ public class PlayerBox {
 		player4.setOnAction(e -> {
 			playerNr = 4;
 			secondStage.close();
+			
 		});
 		
 		PokerGame.num_players = playerNr;
 		
 		secondStage.setScene(scene);
 		secondStage.showAndWait();
+		
 		
 		
 		return playerNr;
