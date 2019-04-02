@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import poker.version_graphics.controller.PokerGameController;
 import poker.version_graphics.model.PokerGameModel;
+import poker.version_graphics.view.MenBar;
 import poker.version_graphics.view.PokerGameView;
 
 public class PokerGame extends Application {
@@ -11,6 +12,7 @@ public class PokerGame extends Application {
 	PokerGameModel model;
 	PokerGameView view;
 	PokerGameController controller;
+	MenBar menBar;
 	
     public static void main(String[] args) {
         launch();

@@ -43,11 +43,9 @@ public class MenBar extends MenuBar{
 	
 
 	}
-	
-	
-public MenuItem getChangPl() {
-	return this.changPl;
-
+	//Method to change players	
+	public MenuItem getChangPl() {
+		return this.changPl;
 
 
 }
