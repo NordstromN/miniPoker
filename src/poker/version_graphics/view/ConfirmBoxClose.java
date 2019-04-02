@@ -12,7 +12,7 @@ public class ConfirmBoxClose {
 	
 	public static boolean answer;
 	
-	public static boolean display(String title, String message) {
+	public static void display(String title, String message) {
 		
 		Stage secondStage = new Stage();
 		
@@ -25,24 +25,16 @@ public class ConfirmBoxClose {
 		Button yesButton = new Button ("Yes");
 		Button noButton = new Button ("No");
 		
-		yesButton.setOnAction(e->{
-			answer = true;
-			secondStage.close();
-		});
 		
-		noButton.setOnAction(e->{
-			answer = false;
-			secondStage.close();
-		});
 		
 		VBox vBox = new VBox(10);
-		vBox.getChildren().addAll(messageLabel, yesButton, noButton);
+		vBox.getChildren().addAll(messageLabel);
 		vBox.setAlignment(Pos.CENTER);
 		Scene scene = new Scene (vBox);
 		secondStage.setScene(scene);
 		secondStage.showAndWait();
 		
-		return answer;
+		
 		
 	}
 

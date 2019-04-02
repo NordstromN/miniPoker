@@ -31,7 +31,6 @@ public class PokerGameView {
 				players.getChildren().add(pp);
 			}
 			
-			
 			// Create the control area
 			controls = new ControlArea();
 			controls.linkDeck(model.getDeck()); // link DeckLabel to DeckOfCards in the logic
@@ -45,53 +44,6 @@ public class PokerGameView {
 		
 			
 			// Put menu, players and controls into a BorderPane
-		root.setTop(menuBar);
-		root.setCenter(players);
-		root.setBottom(controls);
-		root.setMinSize(1280, 800);
-		root.setMaxSize(1280, 800);	
-		
-		
-		// Disallow resizing - which is difficult to get right with images
-		stage.setResizable(false);
-
-        // Create the scene using our layout; then display it
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(
-                getClass().getResource("poker.css").toExternalForm());
-        stage.setTitle("Poker Miniproject");
-        
-        stage.setOnCloseRequest(e -> {
-        	e.consume();
-        	closeProgram(stage);	
-        });
-        
-        
-        stage.setScene(scene); 
-        stage.show();		
-	}
-	
-	public PlayerPane getPlayerPane(int i) {
-		return (PlayerPane) players.getChildren().get(i);
-	}
-
-	private void closeProgram(Stage stage) {
-		boolean choice = ConfirmBoxClose.display("Quit?", "Sicher, dass Sie schliessen m�chten?");
-		if (choice)
-			stage.close();
-		
-	}
-	
-
-	public MenuItem getChangPl() {
-		return this.changPl;
-	}
-	
-	
-	public Button getShuffleButton() {
-		return controls.btnShuffle;
-	}
-=======
 			root.setTop(menuBar);
 			root.setCenter(players);
 			root.setBottom(controls);
@@ -101,7 +53,6 @@ public class PokerGameView {
 			
 			// Disallow resizing - which is difficult to get right with images
 			stage.setResizable(false);
->>>>>>> 439098e6777b275c03dc6fe24ee6f65707468a10
 
 	        // Create the scene using our layout; then display it
 	        Scene scene = new Scene(root);

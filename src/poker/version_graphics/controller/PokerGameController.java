@@ -24,8 +24,7 @@ import poker.version_graphics.view.PokerGameView;
 public class PokerGameController {
 	private PokerGameModel model;
 	private PokerGameView view;
-	private MenBar menBar;
-	
+		
 	public PokerGameController(PokerGameModel model, PokerGameView view) {
 		this.model = model;
 		this.view = view;
