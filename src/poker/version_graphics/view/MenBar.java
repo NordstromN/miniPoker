@@ -34,10 +34,15 @@ public class MenBar extends MenuBar{
 	
 	game.getItems().addAll(changPl, statGameItem, closeGameItem);
 	
+
 	settings = new Menu("Settings");
+	
 	changeColourItem = new MenuItem("Change Colour");
 	//changeColourItem.setOnAction((ActionEvent e) -> lülülülülü);
 	//	changeColourItem.setOnAction((ActionEvent f) -> changecolor(f));
+	
+	changeColourItem.setOnAction(e-> settingsProcess());
+	
 	
 	settings.getItems().add(changeColourItem);
 	this.getMenus().addAll(game,settings);
@@ -52,7 +57,10 @@ public class MenBar extends MenuBar{
 	
 	public void selectChangePl() {
 		PlayerBox.newPlayer();
-		
+	}
+	
+	public void settingsProcess() {
+		SettingsBox.changeSettings();
 	}
 }
 	
