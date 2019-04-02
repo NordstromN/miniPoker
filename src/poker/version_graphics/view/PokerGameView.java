@@ -79,7 +79,10 @@ public class PokerGameView {
                 getClass().getResource("poker.css").toExternalForm());
         stage.setTitle("Poker Miniproject");
         
-        stage.setOnCloseRequest(e -> closeProgram(stage));;
+        stage.setOnCloseRequest(e -> {
+        	e.consume();
+        	closeProgram(stage);	
+        });
         
         
         stage.setScene(scene); 
@@ -89,19 +92,20 @@ public class PokerGameView {
 	public PlayerPane getPlayerPane(int i) {
 		return (PlayerPane) players.getChildren().get(i);
 	}
-	
-<<<<<<< HEAD
+
 	private void closeProgram(Stage stage) {
-		AlertBoxClose.display("Quit", "Sicher, dass Sie schliessen möchten?");
+		boolean choice = ConfirmBoxClose.display("Quit?", "Sicher, dass Sie schliessen möchten?");
+		if (choice)
+			stage.close();
+		
 	}
 	
-=======
+
 	public MenuItem getChangPl() {
 		return this.changPl;
 	}
 	
 	
->>>>>>> ed4992dac7441feb7db6fd84144487a79228d115
 	public Button getShuffleButton() {
 		return controls.btnShuffle;
 	}
