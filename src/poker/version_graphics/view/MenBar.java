@@ -18,7 +18,7 @@ public class MenBar extends MenuBar{
 
 	// Start the Game new including deleting the played hands out the history
 	MenuItem newGameItem = new MenuItem("New Game");
-	newGameItem.setOnAction((Actionevent e) -> );
+	//newGameItem.setOnAction((Actionevent e) -> );
 	
 	MenuItem changPl = new MenuItem("Change Player");
 	
@@ -34,7 +34,7 @@ public class MenBar extends MenuBar{
 	Menu settings = new Menu("Settings");
 	MenuItem changeColourItem = new MenuItem("Change Colour");
 	
-	changeColourItem.setOnAction((ActionEvent e) -> lülülülülü);
+	//changeColourItem.setOnAction((ActionEvent e) -> lülülülülü);
 	
 //	changeColourItem.setOnAction((ActionEvent f) -> changecolor(f));
 	

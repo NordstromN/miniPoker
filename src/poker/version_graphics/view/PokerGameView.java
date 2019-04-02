@@ -14,6 +14,7 @@ public class PokerGameView {
 	private MenBar menuBar;
 	private PokerGameModel model;
 	
+	
 	public PokerGameView(Stage stage, PokerGameModel model) {
 		this.model = model;
 		
@@ -55,12 +56,20 @@ public class PokerGameView {
         scene.getStylesheets().add(
                 getClass().getResource("poker.css").toExternalForm());
         stage.setTitle("Poker Miniproject");
+        
+        stage.setOnCloseRequest(e -> closeProgram(stage));;
+        
+        
         stage.setScene(scene); 
         stage.show();		
 	}
 	
 	public PlayerPane getPlayerPane(int i) {
 		return (PlayerPane) players.getChildren().get(i);
+	}
+	
+	private void closeProgram(Stage stage) {
+		AlertBoxClose.display("Quit", "Sicher, dass Sie schliessen möchten?");
 	}
 	
 	public Button getShuffleButton() {

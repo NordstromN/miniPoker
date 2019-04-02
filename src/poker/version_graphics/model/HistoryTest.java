@@ -2,7 +2,7 @@ package poker.version_graphics.model;
 
 import poker.version_graphics.model.Card.Rank;
 import poker.version_graphics.model.Card.Suit;
-import poker.version_graphics.model.Round.Status;
+
 
 public class HistoryTest {
 
