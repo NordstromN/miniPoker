@@ -9,45 +9,47 @@ import poker.version_graphics.controller.PokerGameController;
 
 public class MenBar extends MenuBar{
 
-	
-	
+	private Menu game, settings;	
+	private MenuItem changPl, statGameItem, closeGameItem, changeColourItem;
+
+
 	//Create the contructor for MenuBar with two Menues and 4 Items
 	public MenBar() {
 	
-	Menu game = new Menu("Game");
+	game = new Menu("Game");
 
 	// Start the Game new including deleting the played hands out the history
-	MenuItem newGameItem = new MenuItem("New Game");
+	//MenuItem newGameItem = new MenuItem("New Game");
 	//newGameItem.setOnAction((Actionevent e) -> );
 	
-	MenuItem changPl = new MenuItem("Change Player");
+	//Get the Menu Items
+	changPl = new MenuItem("Change Player");
 	
-	MenuItem statGameItem = new MenuItem("Statistics");
-	
-	//Setting exit
-	MenuItem closeGameItem = new MenuItem("Close Game");
+	statGameItem = new MenuItem("Statistics");
+		//Setting exit
+	closeGameItem = new MenuItem("Close Game");
 	closeGameItem.setOnAction((ActionEvent e) -> Platform.exit());
 	
 	
-	game.getItems().addAll(newGameItem, changPl, statGameItem, closeGameItem);
+	game.getItems().addAll(changPl, statGameItem, closeGameItem);
 	
-	Menu settings = new Menu("Settings");
-	MenuItem changeColourItem = new MenuItem("Change Colour");
-	
+	settings = new Menu("Settings");
+	changeColourItem = new MenuItem("Change Colour");
 	//changeColourItem.setOnAction((ActionEvent e) -> lülülülülü);
-	
-//	changeColourItem.setOnAction((ActionEvent f) -> changecolor(f));
+	//	changeColourItem.setOnAction((ActionEvent f) -> changecolor(f));
 	
 	settings.getItems().add(changeColourItem);
-
 	this.getMenus().addAll(game,settings);
-	
-		
 	
 
 	}
-
 	
-}
+	
+public MenuItem getChangPl() {
+	return this.changPl;
 
+
+
+}
+}
 	
