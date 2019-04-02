@@ -52,12 +52,7 @@ public class MenBar extends MenuBar{
 	
 	public void selectChangePl() {
 		PlayerBox.newPlayer();
+		
 	}
-	//Method to change players	
-	public MenuItem getChangPl() {
-		return this.changPl;
-
-
-}
 }
 	

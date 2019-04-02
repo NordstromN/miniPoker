@@ -22,7 +22,6 @@ public class PokerGameView {
 	public PokerGameView(Stage stage, PokerGameModel model) {
 			this.model = model;
 			
-			
 			// Create all of the player panes we need, and put them into an HBox
 			players = new VBox();
 			for (int i = 0; i < PokerGame.num_players; i++) {
@@ -49,7 +48,6 @@ public class PokerGameView {
 			root.setBottom(controls);
 			root.setMinSize(1280, 800);
 			root.setMaxSize(1280, 800);	
-			
 			
 			// Disallow resizing - which is difficult to get right with images
 			stage.setResizable(false);
@@ -92,5 +90,15 @@ public class PokerGameView {
 		public Button getShufDeaButton() {
 			return controls.btnShufDea;
 		}
-		
+	
+}
+		//TODO
+		/*
+		public MenuItem getSelectChangePl() {
+			return menuBar;
 		}
+		*/
+		
+		
+		
+		

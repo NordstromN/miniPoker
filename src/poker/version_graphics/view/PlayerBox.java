@@ -35,14 +35,27 @@ public class PlayerBox {
 		vBox.getChildren().addAll(messageLabel, hBox);
 		vBox.setAlignment(Pos.CENTER);
 		Scene scene = new Scene (vBox);
+
+		
+		player2.setOnAction(e -> {
+			playerNr = 2;
+			secondStage.close();
+		});
+		player3.setOnAction(e -> {
+			playerNr = 3;
+			secondStage.close();
+		});
+		player4.setOnAction(e -> {
+			playerNr = 4;
+			secondStage.close();
+		});
+		
+		PokerGame.num_players = playerNr;
+		
 		secondStage.setScene(scene);
 		secondStage.showAndWait();
 		
-		player2.setOnAction(e -> playerNr = 2);
-		player3.setOnAction(e -> playerNr = 3);
-		player4.setOnAction(e -> playerNr = 4);
 		
-		PokerGame.num_players = playerNr;
 		return playerNr;
 		
 	}
