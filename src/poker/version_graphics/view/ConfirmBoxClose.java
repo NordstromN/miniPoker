@@ -39,11 +39,12 @@ public class ConfirmBoxClose {
 		vBox.setAlignment(Pos.CENTER);
 		Scene scene = new Scene (vBox);
 	
+
+		
 		secondStage.setScene(scene);
 		
 		secondStage.showAndWait();
 		
-
 		
 		return answer;
 		
