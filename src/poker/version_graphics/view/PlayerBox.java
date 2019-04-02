@@ -29,7 +29,7 @@ public class PlayerBox {
 		Button player4 = new Button ("4");
 		
 		HBox hBox = new HBox(10);
-		hBox.getChildren().addAll(player2, player3, player3);
+		hBox.getChildren().addAll(player2, player3, player4);
 		
 		VBox vBox = new VBox(10);
 		vBox.getChildren().addAll(messageLabel, hBox);
