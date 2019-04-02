@@ -24,6 +24,7 @@ public class MenBar extends MenuBar{
 	
 	//Get the Menu Items
 	changPl = new MenuItem("Change Player");
+	changPl.setOnAction(e -> selectChangePl());
 	
 	statGameItem = new MenuItem("Statistics");
 		//Setting exit
@@ -54,8 +55,6 @@ public class MenBar extends MenuBar{
 	}
 	//Method to change players	
 	public MenuItem getChangPl() {
-		
-		
 		return this.changPl;
 
 

@@ -18,7 +18,8 @@ public class ConfirmBoxClose {
 		
 		secondStage.initModality(Modality.APPLICATION_MODAL);
 		secondStage.setTitle(title);
-		secondStage.setMinWidth(250);
+		secondStage.setMinWidth(320);
+		secondStage.setMinHeight(220);
 		Label messageLabel = new Label();
 		messageLabel.setText(message);
 		

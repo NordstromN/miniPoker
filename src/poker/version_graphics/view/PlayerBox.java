@@ -8,6 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import poker.version_graphics.PokerGame;
 
 public class PlayerBox {
 
@@ -41,6 +42,7 @@ public class PlayerBox {
 		player3.setOnAction(e -> playerNr = 3);
 		player4.setOnAction(e -> playerNr = 4);
 		
+		PokerGame.num_players = playerNr;
 		return playerNr;
 		
 	}

@@ -25,7 +25,7 @@ public class PokerGameView {
 			
 			// Create all of the player panes we need, and put them into an HBox
 			players = new VBox();
-			for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+			for (int i = 0; i < PokerGame.num_players; i++) {
 				PlayerPane pp = new PlayerPane();
 				pp.setPlayer(model.getPlayer(i)); // link to player object in the logic
 				players.getChildren().add(pp);

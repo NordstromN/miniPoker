@@ -9,7 +9,7 @@ public class PokerGameModel {
 	private DeckOfCards deck;
 	
 	public PokerGameModel() {
-		for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+		for (int i = 0; i < PokerGame.num_players; i++) {
 			players.add(new Player("Player " + i));
 		}
 		deck = new DeckOfCards();

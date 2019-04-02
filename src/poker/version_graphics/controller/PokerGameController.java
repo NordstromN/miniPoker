@@ -43,7 +43,7 @@ public class PokerGameController {
      * Remove all cards from players hands, and shuffle the deck
      */
     private void shuffle() {
-    	for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+    	for (int i = 0; i < PokerGame.num_players; i++) {
     		Player p = model.getPlayer(i);
     
     		p.discardHand();
@@ -58,10 +58,10 @@ public class PokerGameController {
      * Deal each player five cards, then evaluate the two hands
      */
     private void deal() {
-    	int cardsRequired = PokerGame.NUM_PLAYERS * Player.HAND_SIZE;
+    	int cardsRequired = PokerGame.num_players * Player.HAND_SIZE;
     	DeckOfCards deck = model.getDeck();
     	if (cardsRequired <= deck.getCardsRemaining()) {
-        	for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+        	for (int i = 0; i < PokerGame.num_players; i++) {
         		Player p = model.getPlayer(i);
      
         		p.discardHand();
