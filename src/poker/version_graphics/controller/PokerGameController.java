@@ -1,5 +1,6 @@
 package poker.version_graphics.controller;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import poker.version_graphics.PokerGame;
@@ -17,9 +18,15 @@ public class PokerGameController {
 	public PokerGameController(PokerGameModel model, PokerGameView view) {
 		this.model = model;
 		this.view = view;
+
 		
-		view.getShuffleButton().setOnAction( e -> shuffle() );
-		view.getDealButton().setOnAction( e -> deal() );
+		view.getShuffleButton().setOnAction(e -> shuffle());
+		view.getDealButton().setOnAction(e -> deal());
+		view.getShufDeaButton().addEventHandler(ActionEvent.ACTION, (e)-> {
+			shuffle();
+			deal();	
+		});
+					
 	}
 	
 	
