@@ -45,7 +45,6 @@ public class PokerGameView {
 		
 			
 			// Put menu, players and controls into a BorderPane
-<<<<<<< HEAD
 		root.setTop(menuBar);
 		root.setCenter(players);
 		root.setBottom(controls);
@@ -77,7 +76,7 @@ public class PokerGameView {
 	}
 
 	private void closeProgram(Stage stage) {
-		boolean choice = ConfirmBoxClose.display("Quit?", "Sicher, dass Sie schliessen möchten?");
+		boolean choice = ConfirmBoxClose.display("Quit?", "Sicher, dass Sie schliessen mï¿½chten?");
 		if (choice)
 			stage.close();
 		
