@@ -60,9 +60,24 @@ public class PokerGameView {
 	                getClass().getResource("poker.css").toExternalForm());
 	        stage.setTitle("Poker Miniproject");
 	        stage.setScene(scene); 
-	        stage.show();		
+	        stage.show();	
+	        
+	        stage.setOnCloseRequest(e -> {
+	        	e.consume();
+	        	closeProgram(stage);	
+	        });
+	        
 		}
 		
+		private void closeProgram(Stage stage) {
+			boolean choice = ConfirmBoxClose.display("Quit?", "Sure, you want to quit?");
+			if (choice)
+			stage.close();
+		
+		}
+	
+	
+	
 		public PlayerPane getPlayerPane(int i) {
 			return (PlayerPane) players.getChildren().get(i);
 		}
