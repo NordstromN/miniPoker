@@ -28,7 +28,7 @@ public class MenBar extends MenuBar{
 	statGameItem = new MenuItem("Statistics");
 		//Setting exit
 	closeGameItem = new MenuItem("Close Game");
-	closeGameItem.setOnAction((ActionEvent e) -> Platform.exit());
+	closeGameItem.setOnAction((ActionEvent e) -> closeBox());
 	
 	
 	game.getItems().addAll(changPl, statGameItem, closeGameItem);
@@ -42,6 +42,11 @@ public class MenBar extends MenuBar{
 	this.getMenus().addAll(game,settings);
 	
 
+	}
+	
+	public void closeBox() {
+		if (ConfirmBoxClose.display("Quit", "Are you sure you want to quit?"))
+			Platform.exit();
 	}
 	
 	public void selectChangePl() {
