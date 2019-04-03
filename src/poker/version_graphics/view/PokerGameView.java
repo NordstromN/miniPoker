@@ -105,22 +105,22 @@ public class PokerGameView {
 			switch(i) {
 				
 			case 0:
-				scene.getStylesheets().remove("poker.css");
+				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(
 			                getClass().getResource("poker.css").toExternalForm());
 				
 				break;
 			case 1:
-				scene.getStylesheets().remove("poker.css");
+				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(
 			                getClass().getResource("poker1.css").toExternalForm());
 
 				break;
 			case 2:
-				scene.getStylesheets().remove("poker.css");
+				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(
 			                getClass().getResource("poker2.css").toExternalForm());
-
+				  
 				break;
 			}
 			

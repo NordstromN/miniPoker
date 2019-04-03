@@ -9,7 +9,7 @@
 
 .root{
 	
-	-fx-background-image: url(/poker/images/background.png);
+		-fx-background-color: violet;
 	
 }
 
