@@ -38,10 +38,12 @@ public class ConfirmBoxClose {
 			answer = true;
 			secondStage.close();
 		});
+		
 		noButton.setOnAction(e-> {
 			answer = false;
 			secondStage.close();		
 		});
+		
 		noButton.setOnKeyPressed((event)->{
 			if (event.getCode()==KeyCode.ENTER) {
 				answer = false;
@@ -55,11 +57,8 @@ public class ConfirmBoxClose {
 		Scene scene = new Scene (vBox);
 	
 
-		
 		secondStage.setScene(scene);
-		
 		secondStage.showAndWait();
-		
 		
 		return answer;
 		
