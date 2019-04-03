@@ -1,5 +1,6 @@
 package poker.version_graphics.view;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import poker.version_graphics.model.DeckOfCards;
@@ -13,7 +14,7 @@ public class ControlArea extends VBox{
     public ControlArea() {
     	super(); // Always call super-constructor first !!
 
-    	  	
+    	
     	this.getChildren().addAll(lblDeck, btnDeal, btnShuffle, btnShufDea);
         this.setId("button"); // Unique ID in the CSS for the buttons
     }

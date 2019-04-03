@@ -2,6 +2,7 @@ package poker.version_graphics.view;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
@@ -19,13 +20,15 @@ public class PokerGameView {
 	private MenBar menuBar;
 	private PokerGameModel model;
 	private BorderPane root;
+	private CardBackDeck cbd;
 	private Scene scene;
 	
 	public PokerGameView(Stage stage, PokerGameModel model) {
 			this.model = model;
 			
-			// Create all of the player panes we need, and put them into an HBox
+			// Create the view of players, set them central in the middle
 			players = new VBox();
+			players.setAlignment(Pos.CENTER);
 			for (int i = 0; i < PokerGame.num_players; i++) {
 				PlayerPane pp = new PlayerPane();
 				pp.setPlayer(model.getPlayer(i)); // link to player object in the logic
@@ -38,16 +41,21 @@ public class PokerGameView {
 			
 			//create the MenuBar
 			menuBar = new MenBar();
-
+			
+			//create the card deck to deal out of
+			cbd = new CardBackDeck();
+			cbd.setAlignment(Pos.BOTTOM_CENTER);
+			
 			// Create root and set size
 			this.root = new BorderPane();
 		
 			// Put menu, players and controls into a BorderPane
 			root.setTop(menuBar);
 			root.setCenter(players);
+			root.setRight(cbd);
 			root.setBottom(controls);
 			root.setMinSize(1280, 800);
-			root.setMaxSize(1280, 800);	
+			root.setMaxSize(1280, 1200);	
 			
 			// Disallow resizing - which is difficult to get right with images
 			stage.setResizable(false);
@@ -79,7 +87,7 @@ public class PokerGameView {
 		public PlayerPane getPlayerPane(int i) {
 			return (PlayerPane) players.getChildren().get(i);
 		}
-			
+		//Getter methods for the buttons	
 		public Button getShuffleButton() {
 			return controls.btnShuffle;
 		}
@@ -90,6 +98,10 @@ public class PokerGameView {
 		
 		public Button getShufDeaButton() {
 			return controls.btnShufDea;
+		}
+		//Below the getter methods for the menu items
+		public MenuItem getnewGame() {
+			return menuBar.newGame;
 		}
 		
 		public MenuItem getPlayerSettings() {
@@ -136,13 +148,7 @@ public class PokerGameView {
 			}	
 		}
 }
-		//TODO
-		/*
-		public MenuItem getSelectChangePl() {
-			return menuBar;
-		}
-		*/
-		
+
 		
 		
 		

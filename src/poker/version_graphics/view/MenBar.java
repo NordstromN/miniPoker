@@ -10,7 +10,7 @@ import poker.version_graphics.controller.PokerGameController;
 public class MenBar extends MenuBar{
 
 	protected Menu game, settings;	
-	protected MenuItem changePl, statGameItem, closeGameItem, changeColourItem;
+	protected MenuItem newGame, changePl, statGameItem, closeGameItem, changeColourItem;
 
 
 	//Create the contructor for MenuBar with two Menus and 4 Items
@@ -18,28 +18,27 @@ public class MenBar extends MenuBar{
 	
 	game = new Menu("Game");
 	
-	//Get the Menu Items
+	//Add the menu Items
+	newGame = new MenuItem("New Game");
 	changePl = new MenuItem("Change Player");
 	statGameItem = new MenuItem("Statistics");
-	closeGameItem = new MenuItem("Close Game");
 	
+	//Close game menuitem with the closeBox method
+	closeGameItem = new MenuItem("Close Game");
 	closeGameItem.setOnAction((ActionEvent e) -> closeBox());
 	
-	
-	game.getItems().addAll(changePl, statGameItem, closeGameItem);
-	
+	//Add the items
+	game.getItems().addAll(newGame, changePl, statGameItem, closeGameItem);
 
+	//Add another Menut and MenuItem to the GUI
 	settings = new Menu("Settings");
-	
 	changeColourItem = new MenuItem("Change Colour");
-	
-		
 	settings.getItems().add(changeColourItem);
 	this.getMenus().addAll(game,settings);
 	
 
 	}
-	
+	// Open a notification window before closing from a separate class
 	public void closeBox() {
 		if (ConfirmBoxClose.display("Quit", "Are you sure you want to quit?"))
 			Platform.exit();

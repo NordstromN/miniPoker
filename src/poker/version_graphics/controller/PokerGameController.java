@@ -1,22 +1,13 @@
 package poker.version_graphics.controller;
 
 import javafx.event.ActionEvent;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import poker.version_graphics.PokerGame;
 import poker.version_graphics.model.Card;
 import poker.version_graphics.model.DeckOfCards;
 import poker.version_graphics.model.Player;
 import poker.version_graphics.model.PokerGameModel;
-import poker.version_graphics.view.MenBar;
 import poker.version_graphics.view.PlayerBox;
 import poker.version_graphics.view.PlayerPane;
 import poker.version_graphics.view.PokerGameView;
@@ -24,18 +15,21 @@ import poker.version_graphics.view.PokerGameView;
 public class PokerGameController {
 	private PokerGameModel model;
 	private PokerGameView view;
+	private PokerGame start = new PokerGame();
 		
 	public PokerGameController(PokerGameModel model, PokerGameView view) {
 		this.model = model;
 		this.view = view;
 
-		//Buttons in der View eine Action gibt
+		//Buttons in the view
 		view.getShuffleButton().setOnAction(e -> shuffle());
 		view.getDealButton().setOnAction(e -> deal());
 		view.getShufDeaButton().addEventHandler(ActionEvent.ACTION, (e)-> {
 			shuffle();
 			deal();	
 		});
+		//MenuItems with event triggered
+		view.getnewGame().setOnAction(e -> newGame());
 		view.getPlayerSettings().setOnAction(e-> actualizePlayerCount());
 		view.getSettingsBox().setOnAction(e-> setSettings());
 		
@@ -46,11 +40,26 @@ public class PokerGameController {
 		view.setCSSFile();
 	}
 	
-	//TODO
-	// actualize Player Count
+	//Starting a new game 
+	private void newGame() {
+		try {
+			start.start(PokerGame.primarySt);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("I find your lack of faith disturbing" +e);
+		}
+	}
+	
+	//Restart the game after changing number of players
 	private void actualizePlayerCount() {
 		int i = PlayerBox.newPlayer();
 		PokerGame.num_players = i;
+		try {
+			start.start(PokerGame.primarySt);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("May the force be with you" + e);
+		}
 	}
 	
 	/**

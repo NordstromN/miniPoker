@@ -11,8 +11,10 @@ import javafx.stage.Stage;
 
 public class ConfirmBoxClose {
 	
+	//Boolean to finally either close or stay in the game 
 	public static boolean answer;
 	
+	//Setting the GUI of the window
 	public static boolean display(String title, String message) {
 		
 		Stage secondStage = new Stage();
@@ -27,6 +29,7 @@ public class ConfirmBoxClose {
 		Button yesButton = new Button ("Yes");
 		Button noButton = new Button ("No");
 		
+		//Method to secure which choice the user pushed/pressed
 		yesButton.setOnKeyPressed((event)->{
 			if (event.getCode()==KeyCode.ENTER) {
 				answer = true;
@@ -44,6 +47,7 @@ public class ConfirmBoxClose {
 			secondStage.close();		
 		});
 		
+		//Added this method due to annoyed coder during development (to many mouse clicks)
 		noButton.setOnKeyPressed((event)->{
 			if (event.getCode()==KeyCode.ENTER) {
 				answer = false;

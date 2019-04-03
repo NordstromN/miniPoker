@@ -1,16 +1,19 @@
 package poker.version_graphics.view;
 
 import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import poker.version_graphics.model.Card;
 import poker.version_graphics.model.HandType;
 import poker.version_graphics.model.Player;
 
-public class PlayerPane extends GridPane {
+public class PlayerPane extends FlowPane {
     private Label lblName = new Label();
     private HBox hboxCards = new HBox();
     private Label lblEvaluation = new Label("--");
+    private HBox morePlayer = new HBox();
     
     // Link to player object
     private Player player;
@@ -21,10 +24,10 @@ public class PlayerPane extends GridPane {
         
         
         // Add child nodes
-       // this.getChildren().addAll(lblName, hboxCards, lblEvaluation);
-        this.add(lblName, 640, 200);
-        this.add(hboxCards, 640, 300);
-        this.add(lblEvaluation, 640, 400);
+       this.getChildren().addAll(lblName, hboxCards, lblEvaluation);
+        //this.add(lblName, 640, 200);
+        //this.add(hboxCards, 640, 300);
+        //this.add(lblEvaluation, 640, 400);
         
         
         
