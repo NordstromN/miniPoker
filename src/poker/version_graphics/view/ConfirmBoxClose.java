@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -26,6 +27,13 @@ public class ConfirmBoxClose {
 		Button yesButton = new Button ("Yes");
 		Button noButton = new Button ("No");
 		
+		yesButton.setOnKeyPressed((event)->{
+			if (event.getCode()==KeyCode.ENTER) {
+				answer = true;
+				secondStage.close();
+			}
+		});
+		
 		yesButton.setOnAction(e-> {
 			answer = true;
 			secondStage.close();
@@ -33,6 +41,12 @@ public class ConfirmBoxClose {
 		noButton.setOnAction(e-> {
 			answer = false;
 			secondStage.close();		
+		});
+		noButton.setOnKeyPressed((event)->{
+			if (event.getCode()==KeyCode.ENTER) {
+				answer = false;
+				secondStage.close();
+			}
 		});
 		
 		VBox vBox = new VBox(10);
