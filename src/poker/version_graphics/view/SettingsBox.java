@@ -17,7 +17,6 @@ public class SettingsBox {
 	
 	public static int answerChoice = 0;
 	
-	
 	public static int changeSettings() {
 		
 		Stage settingsStage = new Stage();
@@ -34,7 +33,7 @@ public class SettingsBox {
 		Button bImage = new Button("Reset to Table");
 		bImage.setMinSize(200.0, 100.0);
 		bImage.setStyle("-fx-font-size: 20px ; -fx-font-weight: bold;"
-				+ " -fx-text-fill: black");
+				+ " -fx-text-fill: black; -fx-background-color: orange");
 		
 		
 		Button blueTable = new Button();
@@ -53,9 +52,6 @@ public class SettingsBox {
 		
 		Scene scene = new Scene (vBox);
 		vBox.setStyle("-fx-background-color: black");
-		
-
-	
 		
 		bImage.setOnAction(e-> {
 			answerChoice = 0;
@@ -77,8 +73,6 @@ public class SettingsBox {
 		
 		settingsStage.setScene(scene);
 		settingsStage.showAndWait();
-		
-		
 		
 		return answerChoice;
 	}

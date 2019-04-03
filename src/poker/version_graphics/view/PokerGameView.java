@@ -35,7 +35,6 @@ public class PokerGameView {
 			// Create the control area
 			controls = new ControlArea();
 			controls.linkDeck(model.getDeck()); // link DeckLabel to DeckOfCards in the logic
-		
 			
 			//create the MenuBar
 			menuBar = new MenBar();
@@ -43,7 +42,6 @@ public class PokerGameView {
 			// Create root and set size
 			this.root = new BorderPane();
 		
-			
 			// Put menu, players and controls into a BorderPane
 			root.setTop(menuBar);
 			root.setCenter(players);
@@ -62,10 +60,7 @@ public class PokerGameView {
 	        stage.setScene(scene); 
 	        stage.show();	
 	        
-	        menuBar.changeColourItem.setOnAction(e->setRootId());
-	        
-	        
-	        
+	        // if request on Stage close, than method closeProgram which will open an ConfirmBox
 	        stage.setOnCloseRequest(e -> {
 	        	e.consume();
 	        	closeProgram(stage);	
@@ -73,6 +68,7 @@ public class PokerGameView {
 	        
 		}
 		
+		// Link to ConfirmBoxClose, which opens the window
 		private void closeProgram(Stage stage) {
 			boolean choice = ConfirmBoxClose.display("Quit?", "Are you sure, that you want to quit?");
 			if (choice)
@@ -80,11 +76,10 @@ public class PokerGameView {
 		}
 	
 	
-	
 		public PlayerPane getPlayerPane(int i) {
 			return (PlayerPane) players.getChildren().get(i);
 		}
-		
+			
 		public Button getShuffleButton() {
 			return controls.btnShuffle;
 		}
@@ -97,10 +92,26 @@ public class PokerGameView {
 			return controls.btnShufDea;
 		}
 		
-		public void setRootId() {
+		public MenuItem getPlayerSettings() {
+			return menuBar.changePl;
+		}
+		
+		public MenuItem getSettingsBox() {
+			return menuBar.changeColourItem;
+		}
+				
+		public PlayerBox getPlayer() {
+			
+			PlayerBox b1 = new PlayerBox();
+			return b1;
+			
+		}
+		
+		
+		
+		public void setCSSFile() {
 			
 			int i = SettingsBox.changeSettings();
-			System.out.println(i);
 			
 			switch(i) {
 				
@@ -122,10 +133,8 @@ public class PokerGameView {
 			                getClass().getResource("poker2.css").toExternalForm());
 				  
 				break;
-			}
-			
+			}	
 		}
-	
 }
 		//TODO
 		/*

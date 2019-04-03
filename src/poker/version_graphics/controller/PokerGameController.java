@@ -36,13 +36,28 @@ public class PokerGameController {
 			shuffle();
 			deal();	
 		});
+		view.getPlayerSettings().setOnAction(e-> actualizePlayerCount());
+		view.getSettingsBox().setOnAction(e-> setSettings());
 		
+	}
+	
+	// set CSS Settings
+	private void setSettings() {
+		view.setCSSFile();
+	}
+	
+	//TODO
+	// actualize Player Count
+	private void actualizePlayerCount() {
+		int i = PlayerBox.newPlayer();
+		PokerGame.num_players = i;
 	}
 	
 	/**
      * Remove all cards from players hands, and shuffle the deck
      */
-    private void shuffle() {
+	
+	private void shuffle() {
     	for (int i = 0; i < PokerGame.num_players; i++) {
     		Player p = model.getPlayer(i);
     
