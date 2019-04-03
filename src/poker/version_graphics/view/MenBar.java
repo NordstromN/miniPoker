@@ -9,8 +9,8 @@ import poker.version_graphics.controller.PokerGameController;
 
 public class MenBar extends MenuBar{
 
-	private Menu game, settings;	
-	private MenuItem changPl, statGameItem, closeGameItem, changeColourItem;
+	protected Menu game, settings;	
+	protected MenuItem changPl, statGameItem, closeGameItem, changeColourItem;
 
 
 	//Create the contructor for MenuBar with two Menues and 4 Items
@@ -38,10 +38,8 @@ public class MenBar extends MenuBar{
 	settings = new Menu("Settings");
 	
 	changeColourItem = new MenuItem("Change Colour");
-	//changeColourItem.setOnAction((ActionEvent e) -> lülülülülü);
-	//	changeColourItem.setOnAction((ActionEvent f) -> changecolor(f));
 	
-	changeColourItem.setOnAction(e-> settingsProcess());
+	//changeColourItem.setOnAction(e-> settingsProcess());
 	
 	
 	settings.getItems().add(changeColourItem);
@@ -61,6 +59,9 @@ public class MenBar extends MenuBar{
 	
 	public void settingsProcess() {
 		SettingsBox.changeSettings();
+		//return value;
 	}
+	
+	
 }
 	

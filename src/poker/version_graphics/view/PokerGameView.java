@@ -18,6 +18,8 @@ public class PokerGameView {
 	private ControlArea controls;
 	private MenBar menuBar;
 	private PokerGameModel model;
+	private BorderPane root;
+	private Scene scene;
 	
 	public PokerGameView(Stage stage, PokerGameModel model) {
 			this.model = model;
@@ -39,7 +41,7 @@ public class PokerGameView {
 			menuBar = new MenBar();
 
 			// Create root and set size
-			BorderPane root = new BorderPane();
+			this.root = new BorderPane();
 		
 			
 			// Put menu, players and controls into a BorderPane
@@ -53,12 +55,16 @@ public class PokerGameView {
 			stage.setResizable(false);
 
 	        // Create the scene using our layout; then display it
-	        Scene scene = new Scene(root);
+	        this.scene = new Scene(root);
 	        scene.getStylesheets().add(
 	                getClass().getResource("poker.css").toExternalForm());
 	        stage.setTitle("Poker Miniproject");
 	        stage.setScene(scene); 
 	        stage.show();	
+	        
+	        menuBar.changeColourItem.setOnAction(e->setRootId());
+	        
+	        
 	        
 	        stage.setOnCloseRequest(e -> {
 	        	e.consume();
@@ -89,6 +95,35 @@ public class PokerGameView {
 		
 		public Button getShufDeaButton() {
 			return controls.btnShufDea;
+		}
+		
+		public void setRootId() {
+			
+			int i = SettingsBox.changeSettings();
+			System.out.println(i);
+			
+			switch(i) {
+				
+			case 0:
+				scene.getStylesheets().remove("poker.css");
+				  scene.getStylesheets().add(
+			                getClass().getResource("poker.css").toExternalForm());
+				
+				break;
+			case 1:
+				scene.getStylesheets().remove("poker.css");
+				  scene.getStylesheets().add(
+			                getClass().getResource("poker1.css").toExternalForm());
+
+				break;
+			case 2:
+				scene.getStylesheets().remove("poker.css");
+				  scene.getStylesheets().add(
+			                getClass().getResource("poker2.css").toExternalForm());
+
+				break;
+			}
+			
 		}
 	
 }

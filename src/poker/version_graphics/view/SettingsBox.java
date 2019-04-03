@@ -54,22 +54,31 @@ public class SettingsBox {
 		Scene scene = new Scene (vBox);
 		vBox.setStyle("-fx-background-color: black");
 		
+
 	
 		
 		bImage.setOnAction(e-> {
 			answerChoice = 0;
+			
 			settingsStage.close();
 		});
 	
 		blueTable.setOnAction(e-> {
 			answerChoice = 1;
+			
 			settingsStage.close();
 		});
 		
 		lilaTable.setOnAction(e-> {
 			answerChoice = 2;
+		
 			settingsStage.close();
 		});
+		
+		settingsStage.setScene(scene);
+		settingsStage.showAndWait();
+		
+		
 		
 		return answerChoice;
 	}
