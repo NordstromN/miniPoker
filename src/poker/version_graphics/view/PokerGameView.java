@@ -78,7 +78,7 @@ public class PokerGameView {
 		
 		// Link to ConfirmBoxClose, which opens the window
 		private void closeProgram(Stage stage) {
-			boolean choice = ConfirmBoxClose.display("Quit?", "Are you sure, that you want to quit?");
+			boolean choice = ConfirmBoxClose.display("Quit?", "You lost already a lot of money!!! \nDo you really want to quit?");
 			if (choice)
 			stage.close();
 		}

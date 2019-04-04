@@ -40,7 +40,7 @@ public class MenBar extends MenuBar{
 	}
 	// Open a notification window before closing from a separate class
 	public void closeBox() {
-		if (ConfirmBoxClose.display("Quit", "Are you sure you want to quit?"))
+		if (ConfirmBoxClose.display("Quit", "You lost already a lot of money!!! \nDo you really want to quit?"))
 			Platform.exit();
 	}
 	

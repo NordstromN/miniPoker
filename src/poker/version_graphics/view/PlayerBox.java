@@ -23,18 +23,32 @@ public class PlayerBox {
 		secondStage.setMinWidth(250);
 		Label messageLabel = new Label();
 		messageLabel.setText("Choose how many player to participate");
+		//
+		messageLabel.setStyle("-fx-font-size: 20px ; -fx-font-weight: bold;"
+				+ " -fx-text-fill: blue");
+		
+		
 		
 		Button player2 = new Button ("2");
 		Button player3 = new Button ("3");
 		Button player4 = new Button ("4");
+		player2.setStyle("-fx-font-size: 20px ; -fx-font-weight: bold;"
+				+ " -fx-text-fill: black");
+		
+		player3.setStyle("-fx-font-size: 20px ; -fx-font-weight: bold;"
+				+ " -fx-text-fill: black");
+		
+		player4.setStyle("-fx-font-size: 20px ; -fx-font-weight: bold;"
+				+ " -fx-text-fill: black");
+		
 		
 		HBox hBox = new HBox(10);
 		hBox.getChildren().addAll(player2, player3, player4);
-		
+		hBox.setAlignment(Pos.CENTER);
 		VBox vBox = new VBox(10);
 		vBox.getChildren().addAll(messageLabel, hBox);
 		vBox.setAlignment(Pos.CENTER);
-		Scene scene = new Scene (vBox);
+		Scene scene = new Scene (vBox, 400, 200);
 
 		
 		player2.setOnAction(e -> {
