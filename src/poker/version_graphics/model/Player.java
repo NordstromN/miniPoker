@@ -79,7 +79,17 @@ public class Player implements Comparable<Player> {
      */
     @Override
     public int compareTo(Player o) {
-        return handType.compareTo(o.handType);
+    	int value = 0;
+    	
+    	if (this.handType.compareTo(o.handType)==0) {
+        	if (this.handType.equals(handType.HighCard)) {
+        		value = handType.compareIsOnePair(this.getCards(), o.getCards());	
+        	}
+        } else value = handType.compareTo(o.handType);
+    	
+    	
+    	return value;
+        
     }
     
     
@@ -123,13 +133,7 @@ public class Player implements Comparable<Player> {
          	}
     	this.roundResult = resultCounter;
     	
-    }
-    
-    
-    
-    
-    
-    
+    }  
     
     // TEST Methoden delete
     

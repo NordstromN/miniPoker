@@ -29,6 +29,7 @@ public class PokerGameModel {
 		for (int i = 0; i<players.size();i++) {
 			players.get(i).actualizeRound(players);
 			players.get(i).addCardsToHistory();
+			
 		}
 	}
 	

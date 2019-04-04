@@ -26,6 +26,10 @@ public class PlayerPane extends FlowPane {
     // Link to player object
     private Player player;
     
+    public void setTextWonLabel() {
+    	wonLabel.setText("won: "+player.getWon());;
+    }
+    
     public PlayerPane() {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class

@@ -97,6 +97,12 @@ public class PokerGameController {
         	}
         	model.actualizePlayers();
         	
+        	for (int i=0; i<PokerGame.num_players; i++) {
+        		view.getPlayerPane(i).setTextWonLabel();	
+        	}
+        	
+        	
+        	
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
             alert.showAndWait();
