@@ -10,7 +10,7 @@ public class Player implements Comparable<Player> {
     private ArrayList<Hand> history = null;
     private int roundResult = 0;
     //
-    
+    private String currentStatus ="";
     private final String playerName; // This is the ID
     private final ArrayList<Card> cards = new ArrayList<>();
     private HandType handType;
@@ -30,6 +30,19 @@ public class Player implements Comparable<Player> {
         return playerName;
     }
     
+    public String getCurrentStatus() {
+    	String currentStatus ="";
+    	if (roundResult ==0) {
+    		currentStatus = "draw";
+    	}
+    	if (roundResult <0) {
+    		currentStatus = "loser";
+    	}
+    	if (roundResult >0) {
+    		currentStatus = "winner";
+    	}
+    	return currentStatus;
+    }
     
     public int getWon() {
     	int wonHistory = 0;

@@ -19,6 +19,13 @@
 	
 }
 
+#currentStatus{
+	
+	   	-fx-font-size: 50px;
+  		-fx-font-weight: bold;
+	
+}
+
 #blue{
 	
 	-fx-background-color: blue;

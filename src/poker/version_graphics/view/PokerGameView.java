@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -82,11 +83,23 @@ public class PokerGameView {
 			if (choice)
 			stage.close();
 		}
+		
+		public void playerAnimation(int i) {
+			getPlayerPane(i).animationWINNER();
+		}
 	
 	
 		public PlayerPane getPlayerPane(int i) {
 			return (PlayerPane) players.getChildren().get(i);
 		}
+		
+		
+		////////////////////////////////77
+		public Label getCurrentStatus(int i) {
+			return getPlayerPane(i).getCurrentStatus();
+		}
+	///////////////////////////77	
+	
 		//Getter methods for the buttons	
 		public Button getShuffleButton() {
 			return controls.btnShuffle;
@@ -118,6 +131,8 @@ public class PokerGameView {
 			return b1;
 			
 		}
+		
+	
 		
 		
 		

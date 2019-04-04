@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
@@ -19,9 +20,8 @@ import poker.version_graphics.model.Player;
 public class PlayerPane extends FlowPane {
     private Label lblName = new Label();
     private Label wonLabel = new Label("won: ");
-
     GridPane gridPanePlayer = new GridPane();
-   
+    private Label currentStatus = new Label("");
     
     private HBox hboxCards = new HBox();
     private VBox vboxPlayerInfo = new VBox();
@@ -40,6 +40,30 @@ public class PlayerPane extends FlowPane {
     	
     }
     
+    public void animationWINNER() {
+    	
+    	Timeline time = new Timeline();
+    	time.setCycleCount(2);
+    	time.setAutoReverse(true);
+    	KeyValue width = new KeyValue(currentStatus.scaleXProperty(), 2);
+    	KeyValue height = new KeyValue(currentStatus.scaleYProperty(), 2);
+    	KeyValue fill = new KeyValue(currentStatus.textFillProperty(), Color.RED);
+    	KeyFrame keyFrame = new KeyFrame(Duration.seconds(2.0),
+    	 width, height, fill);
+    	time.getKeyFrames().add(keyFrame);
+    	
+    	width = new KeyValue(currentStatus.scaleXProperty(), 1);
+    	height = new KeyValue(currentStatus.scaleYProperty(), 1);
+    	fill = new KeyValue(currentStatus.textFillProperty(), Color.TRANSPARENT);
+    	KeyFrame keyFrame1 = new KeyFrame(Duration.seconds(2.0), 
+    	 width, height, fill);
+    	time.getKeyFrames().add(keyFrame1);
+    	
+    	time.play();
+    	
+    }
+    
+    
     public PlayerPane() {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class
@@ -50,20 +74,33 @@ public class PlayerPane extends FlowPane {
         
         gridPanePlayer.add(lblName, 0, 0);
         gridPanePlayer.add(wonLabel, 0, 1);
+        // Add CardLabels for the cards
+        for (int i = 0; i < 5; i++) {
+            Label lblCard = new CardLabel();
+            hboxCards.getChildren().add(lblCard);
+        }  
         
-       this.getChildren().addAll(gridPanePlayer, hboxCards, lblEvaluation);
+        currentStatus.setStyle("-fx-text-fill: transparent");
+        
+     
+        
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(hboxCards, currentStatus);
+        
+        this.getChildren().addAll(gridPanePlayer, stackPane, lblEvaluation);
         //this.add(lblName, 640, 200);
         //this.add(hboxCards, 640, 300);
         //this.add(lblEvaluation, 640, 400);
         
         
         
-        // Add CardLabels for the cards
-        for (int i = 0; i < 5; i++) {
-            Label lblCard = new CardLabel();
-            hboxCards.getChildren().add(lblCard);
-        }
+
     }
+    ///////////////////////
+    public Label getCurrentStatus() {
+    	return this.currentStatus;
+    }
+    /////////////////////////
     
     public void setPlayer(Player player) {
     	this.player = player;

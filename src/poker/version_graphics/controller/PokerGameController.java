@@ -40,6 +40,8 @@ public class PokerGameController {
 		view.setCSSFile();
 	}
 	
+
+	
 	//Starting a new game 
 	private void newGame() {
 		try {
@@ -97,6 +99,19 @@ public class PokerGameController {
         	}
         	model.actualizePlayers();
         	
+        	////////////////////////
+        	for (int i=0; i<PokerGame.num_players; i++) {
+        		
+        		view.getCurrentStatus(i).setText(model.getPlayer(i).getCurrentStatus());
+        		view.playerAnimation(i);
+        		
+        		
+        		
+        		
+        		
+        		
+        	}
+        	////////////////////////77
         	for (int i=0; i<PokerGame.num_players; i++) {
         		view.getPlayerPane(i).setTextWonLabel();	
         	}
