@@ -88,6 +88,43 @@ public enum HandType {
         return firstPairFound && isOnePair(clonedCards);
     }
     
+    
+    
+    public static int isTwoPairRank(ArrayList<Card> cards, int pairWish) {
+        // Clone the cards, because we will be altering the list
+        ArrayList<Card> clonedCards = sortCards((ArrayList<Card>) cards.clone());
+        int firstPairRank = 0;
+        int secondPairRank = 0;
+        // Find the first pair; if found, remove the cards from the list
+        boolean firstPairFound = false;
+        for (int i = 0; i < clonedCards.size() - 1 && !firstPairFound; i++) {
+            for (int j = i+1; j < clonedCards.size() && !firstPairFound; j++) {
+                if (clonedCards.get(i).getRank() == clonedCards.get(j).getRank()) {
+                	if (firstPairFound = false) {
+                		firstPairRank = clonedCards.get(i).getRank().getRankValue();
+                	}
+                	if (firstPairFound = true) {
+                		secondPairRank = clonedCards.get(i).getRank().getRankValue();
+                	}
+                	firstPairFound = true;
+                    
+                    clonedCards.remove(j);  // Remove the later card
+                    clonedCards.remove(i);  // Before the earlier one
+                }
+            }
+        }
+        // If a first pair was found, see if there is a second pair
+        if (pairWish == 2) {
+        	return secondPairRank;
+        } else{
+        	return firstPairRank;
+        }
+    }
+    
+    
+    
+    
+    
     public static boolean isThreeOfAKind(ArrayList<Card> cards) {
         
     	boolean threeOfAKindFound = false;
@@ -137,6 +174,16 @@ public enum HandType {
         	}
         }
     	return (count==4);
+    }
+    
+    //returns the Highest Card of a Straight
+    public static int isStraightRank(ArrayList<Card> cards) {
+    	// Sort Array
+    	ArrayList<Card> sortedArray = sortCards(cards);
+        
+        int value = sortedArray.get(4).getRank().getRankValue();
+        
+    	return value;
     }
     
     public static boolean isFlush(ArrayList<Card> cards) {

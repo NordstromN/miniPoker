@@ -76,6 +76,7 @@ public class Player implements Comparable<Player> {
 
     /**
      * Hands are compared, based on the evaluation they have.
+     * Additionally if they have the same evaluation (HighCard / HighCard), there will be done some further tests
      */
     @Override
     public int compareTo(Player o) {
@@ -102,7 +103,6 @@ public class Player implements Comparable<Player> {
     							found = false;
     						}
     					}  
-    					
     					value = test;
     				}
     						
@@ -111,17 +111,89 @@ public class Player implements Comparable<Player> {
     			case OnePair :
     				if (handType.isOnePairRank(this.cards)>handType.isOnePairRank(o.cards)) {
         				value = 1;
+        			} 	
+    				if (handType.isOnePairRank(this.cards)<handType.isOnePairRank(o.cards)) {
+        				value = -1;
         			}
+    				if (handType.isOnePairRank(this.cards)==handType.isOnePairRank(o.cards)) {
+        				value = 0;
+        			}
+    				break;
+    			case TwoPair :
+    				if (handType.isTwoPairRank(this.cards, 2)>handType.isTwoPairRank(o.cards, 2) || 
+    						(handType.isTwoPairRank(this.cards, 2)==handType.isTwoPairRank(o.cards, 2)&&
+    								handType.isTwoPairRank(this.cards, 1)>handType.isTwoPairRank(o.cards, 1))) {
+        				value = 1;
+        			} 	
+    				if (handType.isTwoPairRank(this.cards, 2)<handType.isTwoPairRank(o.cards, 2) || 
+    						(handType.isTwoPairRank(this.cards, 2)==handType.isTwoPairRank(o.cards, 2)&&
+    								handType.isTwoPairRank(this.cards, 1)<handType.isTwoPairRank(o.cards, 1))) {
+        				value = -1;
+        			} 
+    				
+    				
     				break;
     			case ThreeOfAKind :
     				if (handType.isThreeOfAKindRank(this.cards)>handType.isThreeOfAKindRank(o.cards)) {
         				value = 1;
         			}	
+    				if (handType.isThreeOfAKindRank(this.cards)<handType.isThreeOfAKindRank(o.cards)) {
+        				value = -1;
+        			}
     				break;
     			case FourOfAKind :
     				if (handType.isThreeOfAKindRank(this.cards)>handType.isThreeOfAKindRank(o.cards)) {
         				value = 1;
         			}
+    				if (handType.isThreeOfAKindRank(this.cards)<handType.isThreeOfAKindRank(o.cards)) {
+        				value = -1;
+        			}
+    				break;
+    				
+    			case Straight :
+    				if (handType.isStraightRank(this.cards)>handType.isStraightRank(o.cards)) {
+        				value = 1;
+        			}
+    				if (handType.isStraightRank(this.cards)<handType.isStraightRank(o.cards)) {
+        				value = -1;
+        			}
+    				break;
+    				
+    			case Flush :
+    				{
+					int test = 0;
+					boolean found = false;
+					for (int i = cards.size()-1; i>=0  && !found; i--) {
+						int hT1 = handType.sortCards(this.cards).get(i).getRank().getRankValue();
+						int hT2 = handType.sortCards(o.cards).get(i).getRank().getRankValue();
+						if(hT1 > hT2) {
+							test = 1;
+							found = true;
+						} else if (hT1 < hT2) {
+							test = -1;
+							found = true;
+						} else if (hT1 == hT2) {
+							test = 0;
+							found = false;
+						}
+					}  
+					value = test;
+    				}
+    				break;
+    			
+    			case StraightFlush :
+    				//if 2 have Royal Flush, its always equal
+    				value = 0;
+        			
+    				
+    				break;	
+    				
+    				
+    			case RoyalFlush :
+    				//if 2 have Royal Flush, its always equal
+    				value = 0;
+        			
+    				
     				break;
     				
     		}
