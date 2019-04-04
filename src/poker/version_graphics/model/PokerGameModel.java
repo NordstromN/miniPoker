@@ -26,7 +26,8 @@ public class PokerGameModel {
 	}
 	
 	public void checkWinner() {		
-		int playerWon = 0;
+		int playerWonPosition = 0;
+		int secondPlayerPosition = 0;
 		ArrayList<Player> clonePlayers = new ArrayList<Player>();
 		clonePlayers = this.players;
 		
@@ -40,11 +41,23 @@ public class PokerGameModel {
 		
 		for (int i = 0; i<clonePlayers.size(); i++) {
 			if (clonePlayers.get(clonePlayers.size()-1).equals(this.players.get(i))) {
-				playerWon = i;
+				playerWonPosition = i;
 			}
 		}
 		
-		players.get(playerWon).addWon();
+		for (int i = 0; i<clonePlayers.size(); i++) {
+			if (clonePlayers.get(clonePlayers.size()-2).equals(this.players.get(i))) {
+				secondPlayerPosition = i;
+			}
+		}	
+		
+		
+		if (players.get(playerWonPosition).compareTo(players.get(secondPlayerPosition))==0) {
+			
+		} else {
+			players.get(playerWonPosition).addWon();	
+		}
+		
 	}	
 	
 }

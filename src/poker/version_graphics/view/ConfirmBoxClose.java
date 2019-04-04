@@ -110,7 +110,6 @@ public class ConfirmBoxClose {
 				KeyValue hight = new KeyValue(noButton.scaleYProperty(),2);
 				KeyFrame keyFrame = new KeyFrame(Duration.seconds(1.5), width, hight);
 				time.getKeyFrames().add(keyFrame);
-				
 				time.play();
 				
 				// whe timeline is finished, than close secondStage 
