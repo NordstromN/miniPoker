@@ -40,6 +40,9 @@ public enum HandType {
     }
 
     
+    
+    
+    
     public static boolean isOnePair(ArrayList<Card> cards) {
         boolean found = false;
         for (int i = 0; i < cards.size() - 1 && !found; i++) {
@@ -50,6 +53,8 @@ public enum HandType {
         return found;
     }
     
+    
+    // returns the Pair ranking. Return can be used to compare with other cards Pair
     public static int isOnePairRank(ArrayList<Card> cards) {
         boolean found = false;
         int value = 0;
@@ -99,8 +104,26 @@ public enum HandType {
     		}
     	}      
         return threeOfAKindFound;
-    	
     }
+    
+    public static int isThreeOfAKindRank(ArrayList<Card> cards) {
+        int value = 0;
+    	for (int i = 0; i<cards.size()-2; i++) {
+    		for (int j = i+1; j<cards.size()-1; j++) {
+    			for (int k = j+1; k<cards.size(); k++) {
+    				if (cards.get(i).getRank() == cards.get(j).getRank() &&
+    					cards.get(j).getRank() == cards.get(k).getRank()) {
+    					value = cards.get(i).getRank().getRankValue();
+    				}
+    			}
+    		}
+    	}      
+        return value;
+    }
+    
+    
+    
+    
     
     public static boolean isStraight(ArrayList<Card> cards) {
     	// Sort Array
@@ -150,6 +173,25 @@ public enum HandType {
         return threeOfAKindFound && isOnePair(clonedCards);
     }
     
+    public static int isFourOfAKindRank(ArrayList<Card> cards) {
+    	int value = 0;    	
+    	
+    	for (int i = 0; i<cards.size()-3; i++) {
+    		for (int j = i+1; j<cards.size()-2; j++) {
+    			for (int k = j+1; k<cards.size()-1; k++) {
+    				for (int l = k+1; l<cards.size(); l++) {
+    					if (cards.get(i).getRank() == cards.get(j).getRank() &&
+        						cards.get(j).getRank() == cards.get(k).getRank() &&
+        						cards.get(k).getRank() == cards.get(l).getRank()) {
+        					value = cards.get(j).getRank().getRankValue();			
+    					}
+    				}
+    			}
+    		}
+    	}      
+        return value;
+    }
+    
     public static boolean isFourOfAKind(ArrayList<Card> cards) {
     	boolean fourOfAKindFound = false;    	
     	
@@ -168,6 +210,7 @@ public enum HandType {
     	}      
         return fourOfAKindFound;
     }
+    
     
     public static boolean isStraightFlush(ArrayList<Card> cards) {        
     	return isFlush(cards) && isStraight(cards);

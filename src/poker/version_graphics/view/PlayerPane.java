@@ -1,11 +1,17 @@
 package poker.version_graphics.view;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import poker.version_graphics.model.Card;
 import poker.version_graphics.model.HandType;
 import poker.version_graphics.model.Player;
@@ -26,8 +32,12 @@ public class PlayerPane extends FlowPane {
     // Link to player object
     private Player player;
     
+    
+    
     public void setTextWonLabel() {
-    	wonLabel.setText("won: "+player.getWon());;
+    	
+    	wonLabel.setText("won: "+player.getWon());
+    	
     }
     
     public PlayerPane() {
