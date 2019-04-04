@@ -38,18 +38,7 @@ public enum HandType {
         
         return currentEval;
     }
-    
-    public static int compareIsOnePair(ArrayList<Card> cards1, ArrayList<Card> cards2) {
-        int value = 0;
-	    int c1 = sortCards(cards1).get(4).getRank().getRankValue();
-	    int c2 = sortCards(cards2).get(4).getRank().getRankValue();
-        
-        if (c1>c2) value = 1;
-        if (c1<c2) value = -1;
-        if (c2==c2) value = 0;	
-            
-        return value;
-    }
+
     
     public static boolean isOnePair(ArrayList<Card> cards) {
         boolean found = false;
@@ -60,6 +49,20 @@ public enum HandType {
         }
         return found;
     }
+    
+    public static int isOnePairRank(ArrayList<Card> cards) {
+        boolean found = false;
+        int value = 0;
+        for (int i = 0; i < cards.size() - 1 && !found; i++) {
+            for (int j = i+1; j < cards.size() && !found; j++) {
+                if (cards.get(i).getRank() == cards.get(j).getRank()) 
+                	found = true;
+                	value = cards.get(i).getRank().getRankValue();
+            }
+        }
+        return value;
+    }
+    
     
     public static boolean isTwoPair(ArrayList<Card> cards) {
         // Clone the cards, because we will be altering the list

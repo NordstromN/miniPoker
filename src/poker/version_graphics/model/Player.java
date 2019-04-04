@@ -79,13 +79,14 @@ public class Player implements Comparable<Player> {
      */
     @Override
     public int compareTo(Player o) {
-    	int value = 0;
-    	
-    	if (this.handType.compareTo(o.handType)==0) {
-        	if (this.handType.equals(handType.HighCard)) {
-        		value = handType.compareIsOnePair(this.getCards(), o.getCards());	
-        	}
-        } else value = handType.compareTo(o.handType);
+    	int value = handType.compareTo(o.handType);
+    	if (handType.compareTo(o.handType) == 0) {
+    		if (this.handType.equals(handType.OnePair)) {
+    			if (handType.isOnePairRank(this.cards)>handType.isOnePairRank(o.cards)) {
+    				value = 1;
+    			}
+    		}
+    	}
     	
     	
     	return value;
@@ -94,7 +95,7 @@ public class Player implements Comparable<Player> {
     
     
     public void actualizeRound(ArrayList <Player> players) {
-    	// find Players card in Array List
+    	// find Player  card in Array List
     	// remove Player
     	int resultCounter;
     	ArrayList <Player> clonedPlayers = (ArrayList<Player>) players.clone();
