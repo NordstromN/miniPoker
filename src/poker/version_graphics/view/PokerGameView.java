@@ -44,7 +44,7 @@ public class PokerGameView {
 			
 			//create the card deck to deal out of
 			cbd = new CardBackDeck();
-			cbd.setAlignment(Pos.BOTTOM_CENTER);
+			cbd.setAlignment(Pos.CENTER);
 			
 			// Create root and set size
 			this.root = new BorderPane();

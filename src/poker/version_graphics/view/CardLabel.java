@@ -45,8 +45,8 @@ public class CardLabel extends Label {
 	
 	private void cardAnimation(ImageView imv) {
 		
-		//While they rotate
-		RotateTransition rotator = new RotateTransition(Duration.millis(1000), imv);
+		//Adding rotation 
+		RotateTransition rotator = new RotateTransition(Duration.millis(500), imv);
 	    rotator.setAxis(Rotate.Y_AXIS);
 	    rotator.setFromAngle(0);
 	    rotator.setToAngle(360);
