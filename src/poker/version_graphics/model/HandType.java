@@ -5,8 +5,20 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public enum HandType {
-    HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush;
+    HighCard (1), OnePair(2), TwoPair(3), ThreeOfAKind(4), 
+    Straight(5), Flush(6), FullHouse(7), FourOfAKind(8), StraightFlush(9), RoyalFlush(10);
     
+	private int valueHandType;
+	
+	private HandType(int valueHandType) {
+		this.valueHandType = valueHandType;
+	}
+	
+	public int getHandTypeRankValue() {
+		return this.valueHandType;
+	}
+	
+	
     /**
      * Determine the value of this hand. Note that this does not
      * account for any tie-breaking

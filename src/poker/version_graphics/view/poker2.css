@@ -84,7 +84,7 @@
 	-fx-background-color: red;
 	-fx-spacing: 50.0px;
     -fx-padding: 3.0px;
-    -fx-alignment: center;
+ 
  
 }
 
@@ -92,7 +92,7 @@
 
 .player {
 	-fx-padding: 5.0px;
-    -fx-alignment: center;
+	-fx-alignment:center;
 	
 }
 

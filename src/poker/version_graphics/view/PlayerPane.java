@@ -1,5 +1,6 @@
 package poker.version_graphics.view;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -11,7 +12,14 @@ import poker.version_graphics.model.Player;
 
 public class PlayerPane extends FlowPane {
     private Label lblName = new Label();
+    private Label wonLabel = new Label("won: ");
+
+    GridPane gridPanePlayer = new GridPane();
+   
+    
     private HBox hboxCards = new HBox();
+    private VBox vboxPlayerInfo = new VBox();
+    
     private Label lblEvaluation = new Label("--");
     private HBox morePlayer = new HBox();
     
@@ -21,10 +29,15 @@ public class PlayerPane extends FlowPane {
     public PlayerPane() {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class
-        
-        
+        //this.vboxPlayerInfo.getChildren().addAll(lblName, wonLabel);
+        //this.vboxPlayerInfo.setAlignment(Pos.TOP_LEFT);
         // Add child nodes
-       this.getChildren().addAll(lblName, hboxCards, lblEvaluation);
+        
+        
+        gridPanePlayer.add(lblName, 0, 0);
+        gridPanePlayer.add(wonLabel, 0, 1);
+        
+       this.getChildren().addAll(gridPanePlayer, hboxCards, lblEvaluation);
         //this.add(lblName, 640, 200);
         //this.add(hboxCards, 640, 300);
         //this.add(lblEvaluation, 640, 400);
@@ -45,6 +58,7 @@ public class PlayerPane extends FlowPane {
     
     public void updatePlayerDisplay() {
     	lblName.setText(player.getPlayerName());
+    	wonLabel.setText("won: "+player.getWon());
     	for (int i = 0; i < Player.HAND_SIZE; i++) {
     		Card card = null;
     		if (player.getCards().size() > i) card = player.getCards().get(i);

@@ -38,6 +38,11 @@ public class Player implements Comparable<Player> {
     public String getPlayerName() {
         return playerName;
     }
+    
+    
+    public int getWon() {
+    	return this.won;
+    }
 
     public ArrayList<Card> getCards() {
         return cards;
@@ -90,5 +95,14 @@ public class Player implements Comparable<Player> {
     		System.out.println(currentCard);
     	}
     }
+    
+    public void addWon() {
+    	this.won++;
+    }
+    
+    public HandType getHandType() {
+    	return this.handType;
+    }
+   
     
 }

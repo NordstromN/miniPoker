@@ -97,6 +97,8 @@ public class PokerGameController {
         		PlayerPane pp = view.getPlayerPane(i);
         		pp.updatePlayerDisplay();
         	}
+        	model.checkWinner();
+        	
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
             alert.showAndWait();
