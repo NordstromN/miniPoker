@@ -5,18 +5,20 @@ import java.util.ArrayList;
 public class Hand {
 	
 	private ArrayList<Card> cards = new ArrayList<Card>();
-	private Status status =null;
+	private int roundResult = 0;
 
-	public Hand(ArrayList<Card> cards, Status status) {
+	public Hand(ArrayList<Card> cards, int roundResult) {
 		this.cards = cards;
-		this.status = status;
+		this.roundResult = roundResult;
 	}
 	
 	public ArrayList<Card> getHand(){
 		return this.cards;
 	}
 	
-	public Status getStatus() {
-		return this.getStatus();
+	public int getRoundResult() {
+		return this.roundResult;
 	}
+	
+	
 }

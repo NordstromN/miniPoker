@@ -7,32 +7,23 @@ import javafx.collections.ObservableList;
 
 public class Player implements Comparable<Player> {
     public static final int HAND_SIZE = 5;
-    
     private ArrayList<Hand> history = null;
+    private int roundResult = 0;
     //
     
-    private ObservableList<Hand> obsList= FXCollections.observableArrayList();
-    
-    //
-    private int won = 0;
     private final String playerName; // This is the ID
     private final ArrayList<Card> cards = new ArrayList<>();
     private HandType handType;
     
     public Player(String playerName) {
-        this.playerName = playerName;       
+        this.playerName = playerName;  
+        this.history = new ArrayList<Hand>();
     }
     
     public void addCardsToHistory() {
     	//TODO round Won, loss, even
-    	Hand hand = new Hand(this.cards, Status.won);
+    	Hand hand = new Hand(this.cards, this.roundResult);
     	this.history.add(hand);
-    	obsList.clear();
-    	obsList.addAll(this.history);
-    }
-    
-    public ObservableList<Hand> getObservableList(){
-    	return this.obsList;
     }
 
     public String getPlayerName() {
@@ -41,7 +32,18 @@ public class Player implements Comparable<Player> {
     
     
     public int getWon() {
-    	return this.won;
+    	int wonHistory = 0;
+    	if(history == null || history.size()<1) {
+    		
+    	} else {
+    		for (int i = 0; i<history.size(); i++) {
+        		if(history.get(i).getRoundResult()==1) {
+        			wonHistory ++;
+        		}
+        	}		
+    	}
+    	
+    	return wonHistory;
     }
 
     public ArrayList<Card> getCards() {
@@ -80,6 +82,55 @@ public class Player implements Comparable<Player> {
         return handType.compareTo(o.handType);
     }
     
+    
+    public void actualizeRound(ArrayList <Player> players) {
+    	// find Players card in Array List
+    	// remove Player
+    	int resultCounter;
+    	ArrayList <Player> clonedPlayers = (ArrayList<Player>) players.clone();
+    	
+    	boolean cardFound = false;
+    	for (int i = 0; i<clonedPlayers.size() && !cardFound; i++) {
+    		if(this.getPlayerName() == clonedPlayers.get(i).getPlayerName()) {
+    			clonedPlayers.remove(i);
+    			cardFound = true;
+    		}
+    	}
+    	
+    	int counterWon = 0;
+    	int counterLoss = 0;
+    	int counterEven = 0;
+    	
+    	for (int i = 0; i<clonedPlayers.size(); i++) {
+    		if(this.compareTo(clonedPlayers.get(i))<0){
+    			counterLoss--;
+    		} 
+    		if(this.compareTo(clonedPlayers.get(i))>0){
+    			counterWon++;
+    		} 
+    		if(this.compareTo(clonedPlayers.get(i))==0){
+    			counterEven++;
+    		} 
+    	}
+    	
+    	
+    	if (counterWon == clonedPlayers.size()) {
+    		resultCounter = 1;
+    	} else if  (counterLoss >= 1) {
+    		resultCounter = -1;
+         	} else {
+         		resultCounter = 0;
+         	}
+    	this.roundResult = resultCounter;
+    	
+    }
+    
+    
+    
+    
+    
+    
+    
     // TEST Methoden delete
     
     public void addCard(Card c1, Card c2, Card c3, Card c4, Card c5) {
@@ -96,9 +147,11 @@ public class Player implements Comparable<Player> {
     	}
     }
     
-    public void addWon() {
-    	this.won++;
+    public void roundResult(int i) {
+    	this.roundResult = i;
     }
+    
+    
     
     public HandType getHandType() {
     	return this.handType;

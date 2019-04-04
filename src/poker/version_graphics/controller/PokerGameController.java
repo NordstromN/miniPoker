@@ -69,7 +69,6 @@ public class PokerGameController {
 	private void shuffle() {
     	for (int i = 0; i < PokerGame.num_players; i++) {
     		Player p = model.getPlayer(i);
-    
     		p.discardHand();
     		PlayerPane pp = view.getPlayerPane(i);
     		pp.updatePlayerDisplay();
@@ -87,7 +86,6 @@ public class PokerGameController {
     	if (cardsRequired <= deck.getCardsRemaining()) {
         	for (int i = 0; i < PokerGame.num_players; i++) {
         		Player p = model.getPlayer(i);
-     
         		p.discardHand();
         		for (int j = 0; j < Player.HAND_SIZE; j++) {
         			Card card = deck.dealCard();
@@ -97,7 +95,7 @@ public class PokerGameController {
         		PlayerPane pp = view.getPlayerPane(i);
         		pp.updatePlayerDisplay();
         	}
-        	model.checkWinner();
+        	model.actualizePlayers();
         	
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");

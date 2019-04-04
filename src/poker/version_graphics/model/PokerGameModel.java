@@ -25,7 +25,19 @@ public class PokerGameModel {
 		return deck;
 	}
 	
+	public void actualizePlayers() {
+		for (int i = 0; i<players.size();i++) {
+			players.get(i).actualizeRound(players);
+			players.get(i).addCardsToHistory();
+		}
+	}
+	
+	
+	
+	
+	/*
 	public void checkWinner() {		
+		
 		int playerWonPosition = 0;
 		int secondPlayerPosition = 0;
 		ArrayList<Player> clonePlayers = new ArrayList<Player>();
@@ -53,11 +65,12 @@ public class PokerGameModel {
 		
 		
 		if (players.get(playerWonPosition).compareTo(players.get(secondPlayerPosition))==0) {
-			
+			players.get(playerWonPosition).roundResult(0);
 		} else {
-			players.get(playerWonPosition).addWon();	
+			players.get(playerWonPosition).roundResult(1);
 		}
 		
 	}	
+	*/
 	
 }
