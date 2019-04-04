@@ -4,18 +4,25 @@
 	-fx-font-weight: bold;
     -fx-min-width: 200.0;
     -fx-max-width: 2000.0;
-
+	-fx-alignment:center;
 }
 
 .root{
 	
-	-fx-background-color: blue;
+		-fx-background-color: blue;
 	
 }
 
 #table{
 	
 	-fx-background-image: url(/poker/images/background.png);
+	
+}
+
+#currentStatus{
+	
+	   	-fx-font-size: 50px;
+  		-fx-font-weight: bold;
 	
 }
 
@@ -64,8 +71,7 @@
   	-fx-font-weight: bold;
 	-fx-text-fill: white;
 	-fx-background-color: black;
-	-fx-spacing: 50.0px;
-    -fx-padding: 3.0px;
+	-fx-padding: 3.0px;
     -fx-alignment: center;
  
 }
@@ -92,7 +98,7 @@
 
 .player {
 	-fx-padding: 5.0px;
- 	-fx-alignment:center;
+	-fx-alignment:center;
 	
 }
 
@@ -103,5 +109,5 @@
     -fx-max-width: 110;
     -fx-min-height: 160;
     -fx-max-height: 160;
-
+	
 }

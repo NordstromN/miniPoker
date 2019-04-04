@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 public class Player implements Comparable<Player> {
     public static final int HAND_SIZE = 5;
     private ArrayList<Hand> history = null;
-    private int roundResult = 0;
+    private int roundResult;
     //
     private String currentStatus ="";
     private final String playerName; // This is the ID
@@ -241,7 +241,7 @@ public class Player implements Comparable<Player> {
     	
     	for (int i = 0; i<clonedPlayers.size(); i++) {
     		if(this.compareTo(clonedPlayers.get(i))<0){
-    			counterLoss--;
+    			counterLoss++;
     		} 
     		if(this.compareTo(clonedPlayers.get(i))>0){
     			counterWon++;

@@ -48,14 +48,14 @@ public class PlayerPane extends FlowPane {
     	KeyValue width = new KeyValue(currentStatus.scaleXProperty(), 2);
     	KeyValue height = new KeyValue(currentStatus.scaleYProperty(), 2);
     	KeyValue fill = new KeyValue(currentStatus.textFillProperty(), Color.RED);
-    	KeyFrame keyFrame = new KeyFrame(Duration.seconds(2.0),
+    	KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.8),
     	 width, height, fill);
     	time.getKeyFrames().add(keyFrame);
     	
     	width = new KeyValue(currentStatus.scaleXProperty(), 1);
     	height = new KeyValue(currentStatus.scaleYProperty(), 1);
     	fill = new KeyValue(currentStatus.textFillProperty(), Color.TRANSPARENT);
-    	KeyFrame keyFrame1 = new KeyFrame(Duration.seconds(2.0), 
+    	KeyFrame keyFrame1 = new KeyFrame(Duration.seconds(0.8), 
     	 width, height, fill);
     	time.getKeyFrames().add(keyFrame1);
     	

@@ -56,7 +56,7 @@ public class ConfirmBoxClose {
 				KeyValue width = new KeyValue(yesButton.scaleXProperty(),2);
 				KeyValue hight = new KeyValue(yesButton.scaleYProperty(),2);
 				
-				KeyFrame keyFrame = new KeyFrame(Duration.seconds(1.5), width, hight);
+				KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.5), width, hight);
 				time.getKeyFrames().add(keyFrame);
 				time.play();
 				
@@ -74,7 +74,7 @@ public class ConfirmBoxClose {
 			time.setAutoReverse(false);
 			KeyValue width = new KeyValue(yesButton.scaleXProperty(),2);
 			KeyValue hight = new KeyValue(yesButton.scaleYProperty(),2);
-			KeyFrame keyFrame = new KeyFrame(Duration.seconds(1.5), width, hight);
+			KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.5), width, hight);
 			time.getKeyFrames().add(keyFrame);
 			time.play();
 			
@@ -90,7 +90,7 @@ public class ConfirmBoxClose {
 			time.setAutoReverse(false);
 			KeyValue width = new KeyValue(noButton.scaleXProperty(),2);
 			KeyValue hight = new KeyValue(noButton.scaleYProperty(),2);
-			KeyFrame keyFrame = new KeyFrame(Duration.seconds(1.5), width, hight);
+			KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.5), width, hight);
 			time.getKeyFrames().add(keyFrame);
 			time.play();
 			
@@ -108,7 +108,7 @@ public class ConfirmBoxClose {
 				time.setAutoReverse(false);
 				KeyValue width = new KeyValue(noButton.scaleXProperty(),2);
 				KeyValue hight = new KeyValue(noButton.scaleYProperty(),2);
-				KeyFrame keyFrame = new KeyFrame(Duration.seconds(1.5), width, hight);
+				KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.5), width, hight);
 				time.getKeyFrames().add(keyFrame);
 				time.play();
 				
