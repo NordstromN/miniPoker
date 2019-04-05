@@ -32,7 +32,7 @@ public class Player implements Comparable<Player> {
     }
     
     public void addCardsToHistory() {
-    	//TODO round Won, loss, even
+    	//round Won, loss, even
     	
     	Hand hand = new Hand(this.handType, this.roundResult);
     	this.history.add(hand);
@@ -105,7 +105,7 @@ public class Player implements Comparable<Player> {
      * Hands are compared, based on the evaluation they have.
      * Additionally if they have the same evaluation (HighCard / HighCard), there will be done some further tests
      */
-    @Override
+    
     
     // compareTo method for Players
     public int compareTo(Player o) {

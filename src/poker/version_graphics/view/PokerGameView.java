@@ -1,13 +1,9 @@
 package poker.version_graphics.view;
 
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -21,7 +17,6 @@ public class PokerGameView {
 	private MenBar menuBar;
 	private PokerGameModel model;
 	private BorderPane root;
-	private CardBackDeck cbd;
 	private Scene scene;
 	
 	public PokerGameView(Stage stage, PokerGameModel model) {
@@ -43,17 +38,12 @@ public class PokerGameView {
 			//create the MenuBar
 			menuBar = new MenBar();
 			
-			//create the card deck to deal out of
-			cbd = new CardBackDeck();
-			cbd.setAlignment(Pos.CENTER);
-			
 			// Create root and set size
 			this.root = new BorderPane();
 		
 			// Put menu, players and controls into a BorderPane
 			root.setTop(menuBar);
 			root.setCenter(players);
-			root.setRight(cbd);
 			root.setBottom(controls);
 			root.setMinSize(1280, 800);
 			root.setMaxSize(1280, 1200);	
@@ -85,7 +75,7 @@ public class PokerGameView {
 		}
 		
 		
-		//Makes animation for player (int i)
+		//Makes animation for player
 		public void playerAnimation(int i) {
 			getPlayerPane(i).animationStatus();
 		}
@@ -120,18 +110,18 @@ public class PokerGameView {
 			return menuBar.newGame;
 		}
 		
-		// Returns the MenuItem of Change Player, as the Controller needs to have connection to this
+		// Returns the MenuItem of Change Player, controller requires connection
 		public MenuItem getPlayerSettings() {
 			return menuBar.changePl;
 		}
 
-		// Returns the MenuItem of ColorItem, as the Controller needs to have connection to this
+		// Returns the MenuItem of ColorItem, controller requires connection
 		public MenuItem getSettingsBox() {
 			return menuBar.changeColourItem;
 		}
 		
 
-		// Returns the MenuItem of Statistics, as the Controller needs to have connection to this
+		// Returns the MenuItem of Statistics, controller requires connection
 		public MenuItem getStatistics() {
 			return menuBar.statGameItem;
 		}
@@ -150,14 +140,12 @@ public class PokerGameView {
 			
 			switch(i) {
 				
-			//if case 0 than standard
 			case 0:
 				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(
 			                getClass().getResource("poker.css").toExternalForm());
 				
 				break;
-			//if case 1 than second css
 			case 1:
 				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(
@@ -165,7 +153,6 @@ public class PokerGameView {
 
 				break;
 				
-				//if case 2 than third css
 			case 2:
 				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(

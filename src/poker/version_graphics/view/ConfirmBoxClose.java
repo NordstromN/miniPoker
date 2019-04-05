@@ -16,7 +16,7 @@ import javafx.util.Duration;
 
 public class ConfirmBoxClose {
 	
-	//Boolean to finally either close or stay in the game 
+	//Boolean to determine to stay or leave the game
 	public static boolean answer;
 	
 	//Opens a window returns a boolean (users Choice) and takes title and message
@@ -113,7 +113,7 @@ public class ConfirmBoxClose {
 				time.getKeyFrames().add(keyFrame);
 				time.play();
 				
-				// whe timeline is finished, than close secondStage 
+				// the timeline is finished, than close secondStage 
 				time.setOnFinished(e->secondStage.close());
 				
 			}

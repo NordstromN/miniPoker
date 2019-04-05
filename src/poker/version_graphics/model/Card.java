@@ -2,7 +2,7 @@ package poker.version_graphics.model;
 
 public class Card implements Comparable<Card> {
     public enum Suit { Clubs, Diamonds, Hearts, Spades;
-        @Override
+        //Done 
         public String toString() {
             String suit = "";
             switch (this) {

@@ -21,7 +21,7 @@ public class CardLabel extends Label {
 
 		this.getStyleClass().add("card");
 	}
-
+	//set the card or the back 
 	public void setCard(Card card) {
 		if (card != null) {
 			String fileName = cardToFileName(card);
@@ -45,7 +45,7 @@ public class CardLabel extends Label {
 	
 	private void cardAnimation(ImageView imv) {
 		
-		//Adding rotation 
+		//Rotation method 
 		RotateTransition rotator = new RotateTransition(Duration.millis(500), imv);
 	    rotator.setAxis(Rotate.Y_AXIS);
 	    rotator.setFromAngle(0);

@@ -1,6 +1,5 @@
 package poker.version_graphics.view;
 
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -46,7 +45,7 @@ public class PlayerPane extends FlowPane {
     	Timeline time = new Timeline();
     	time.setCycleCount(2);
     	time.setAutoReverse(true);
-    	//animation gets biger and from Transparent to Red
+    	//animation gets bigger and changes from transparent to red
     	KeyValue width = new KeyValue(currentStatus.scaleXProperty(), 2);
     	KeyValue height = new KeyValue(currentStatus.scaleYProperty(), 2);
     	KeyValue fill = new KeyValue(currentStatus.textFillProperty(), Color.RED);
@@ -85,13 +84,7 @@ public class PlayerPane extends FlowPane {
         stackPane.getChildren().addAll(hboxCards, currentStatus);
         
         this.getChildren().addAll(this.vboxPlayerInfo, stackPane, lblEvaluation);
-        //this.add(lblName, 640, 200);
-        //this.add(hboxCards, 640, 300);
-        //this.add(lblEvaluation, 640, 400);
-        
-        
-        
-
+    
     }
    
     // Returns Label of Status of current Hand, it must be available from other
