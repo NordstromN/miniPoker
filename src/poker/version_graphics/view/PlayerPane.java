@@ -67,27 +67,20 @@ public class PlayerPane extends FlowPane {
     public PlayerPane() {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class
-        //this.vboxPlayerInfo.getChildren().addAll(lblName, wonLabel);
-        //this.vboxPlayerInfo.setAlignment(Pos.TOP_LEFT);
-        // Add child nodes
-        
-        
-        gridPanePlayer.add(lblName, 0, 0);
-        gridPanePlayer.add(wonLabel, 0, 1);
-        // Add CardLabels for the cards
+        this.vboxPlayerInfo.getChildren().addAll(lblName, wonLabel);
+        this.vboxPlayerInfo.setAlignment(Pos.CENTER_LEFT);
+                
         for (int i = 0; i < 5; i++) {
             Label lblCard = new CardLabel();
             hboxCards.getChildren().add(lblCard);
         }  
         
         currentStatus.setStyle("-fx-text-fill: transparent");
-        
-     
-        
+       
         StackPane stackPane = new StackPane();
         stackPane.getChildren().addAll(hboxCards, currentStatus);
         
-        this.getChildren().addAll(gridPanePlayer, stackPane, lblEvaluation);
+        this.getChildren().addAll(this.vboxPlayerInfo, stackPane, lblEvaluation);
         //this.add(lblName, 640, 200);
         //this.add(hboxCards, 640, 300);
         //this.add(lblEvaluation, 640, 400);
