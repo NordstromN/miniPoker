@@ -124,6 +124,11 @@ public class PokerGameView {
 		public MenuItem getSettingsBox() {
 			return menuBar.changeColourItem;
 		}
+		
+		
+		public MenuItem getStatistics() {
+			return menuBar.statGameItem;
+		}
 				
 		public PlayerBox getPlayer() {
 			

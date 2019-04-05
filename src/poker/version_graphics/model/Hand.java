@@ -20,5 +20,19 @@ public class Hand {
 		return this.roundResult;
 	}
 	
+	public String toString() {
+		String cardsString ="";
+		cardsString+= "Result: ";
+		if (roundResult < 0) cardsString += "loss\n";		
+		if (roundResult > 0) cardsString += "win\n";	
+		if (roundResult == 0) cardsString += "even\n";	
+		for (int i = 0; i<cards.size(); i++) {
+			cardsString += cards.get(i) +" | ";
+		}
+		cardsString+= "\n*******************************\n";
+		return cardsString;
+		
+	}
+	
 	
 }

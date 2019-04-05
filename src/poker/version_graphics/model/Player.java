@@ -20,6 +20,16 @@ public class Player implements Comparable<Player> {
         this.history = new ArrayList<Hand>();
     }
     
+    public String getHistory() {
+    	String historyString = "";
+    	for (int i = 0; i<history.size(); i++) {
+    		historyString += "Round: "+i+"\n";
+    		historyString += history.get(i);
+    	}
+    	
+    	return historyString;
+    }
+    
     public void addCardsToHistory() {
     	//TODO round Won, loss, even
     	Hand hand = new Hand(this.cards, this.roundResult);

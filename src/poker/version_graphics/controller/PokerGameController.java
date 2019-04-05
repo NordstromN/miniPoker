@@ -8,6 +8,7 @@ import poker.version_graphics.model.Card;
 import poker.version_graphics.model.DeckOfCards;
 import poker.version_graphics.model.Player;
 import poker.version_graphics.model.PokerGameModel;
+import poker.version_graphics.view.HistoryBox;
 import poker.version_graphics.view.PlayerBox;
 import poker.version_graphics.view.PlayerPane;
 import poker.version_graphics.view.PokerGameView;
@@ -32,12 +33,17 @@ public class PokerGameController {
 		view.getnewGame().setOnAction(e -> newGame());
 		view.getPlayerSettings().setOnAction(e-> actualizePlayerCount());
 		view.getSettingsBox().setOnAction(e-> setSettings());
+		view.getStatistics().setOnAction(e-> showHistory());
 		
 	}
 	
 	// set CSS Settings
 	private void setSettings() {
 		view.setCSSFile();
+	}
+	
+	private void showHistory() {
+		HistoryBox.historyBox(model.getPlayers());
 	}
 	
 

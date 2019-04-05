@@ -23,6 +23,7 @@ public class MenBar extends MenuBar{
 	changePl = new MenuItem("Change Player");
 	statGameItem = new MenuItem("Statistics");
 	
+	
 	//Close game menuitem with the closeBox method
 	closeGameItem = new MenuItem("Close Game");
 	closeGameItem.setOnAction((ActionEvent e) -> closeBox());
