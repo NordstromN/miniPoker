@@ -19,7 +19,7 @@ public class ConfirmBoxClose {
 	//Boolean to finally either close or stay in the game 
 	public static boolean answer;
 	
-	//Setting the GUI of the window
+	//Opens a window returns a boolean (users Choice) and takes title and message
 	public static boolean display(String title, String message) {
 		
 		Stage secondStage = new Stage();
@@ -50,9 +50,10 @@ public class ConfirmBoxClose {
 			if (event.getCode()==KeyCode.ENTER) {
 				answer = true;
 				
+				
+				// a little useless animation, button clicked gets twice of the size
 				Timeline time = new Timeline();
 				time.setAutoReverse(false);
-				
 				KeyValue width = new KeyValue(yesButton.scaleXProperty(),2);
 				KeyValue hight = new KeyValue(yesButton.scaleYProperty(),2);
 				

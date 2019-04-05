@@ -17,7 +17,7 @@ public class CardBackDeck extends HBox{
 		this.getStyleClass().add("card");
 	}
 		
-	
+	//add image on the CardBackDeck
 	public void addPanda() {	
 		Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("poker/images/panda.png"));
 		imv = new ImageView(image);

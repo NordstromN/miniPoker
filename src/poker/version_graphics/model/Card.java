@@ -84,16 +84,6 @@ public class Card implements Comparable<Card> {
 		
 		return Integer.compare(this.rank.getRankValue(), otherCard.rank.getRankValue());
 				
-		
-		/*
-		if(this.rank.getRank()<otherCard.rank.getRank()){
-			return -1;
-		}
-		if(this.rank.getRank()==otherCard.rank.getRank()) {
-			return 0;
-		}
-		return 1;
-		*/
 	}
 	
 	//equals is true, if suit matches with other card

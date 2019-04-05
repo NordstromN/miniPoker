@@ -17,6 +17,9 @@ public class SettingsBox {
 	
 	public static int answerChoice = 0;
 	
+	
+	//change Settings opens a Window and returns an int, of the Users choice
+	//this int will be used to change the css file in the PokerGameView class
 	public static int changeSettings() {
 		
 		Stage settingsStage = new Stage();

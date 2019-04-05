@@ -18,13 +18,12 @@ public class Player implements Comparable<Player> {
     
     public Player(String playerName) {
         this.playerName = playerName;  
-        //this.history = new ArrayList<Hand>();
     }
     
     public String getHistory() {
     	String historyString = "";
     	for (int i = 0; i<history.size(); i++) {
-    		historyString += "Round: \t\t"+i+"\n";
+    		historyString += "Round: \t\t"+(i+1)+"\n";
     		historyString += history.get(i);
     		
     	}
@@ -107,8 +106,12 @@ public class Player implements Comparable<Player> {
      * Additionally if they have the same evaluation (HighCard / HighCard), there will be done some further tests
      */
     @Override
+    
+    // compareTo method for Players
     public int compareTo(Player o) {
     	int value = handType.compareTo(o.handType);
+    	
+    	//if handtype is the same, there should be done some more comparisons in more detail (->switch)
     	if (handType.compareTo(o.handType) == 0) {
     		
     		
@@ -117,6 +120,9 @@ public class Player implements Comparable<Player> {
     				{
     					int test = 0;
     					boolean found = false;
+    					// iterate threw cards until the first higher card is found
+    					// therefore the cards will be sorted with method sortCards and iterated from 
+    					// highest card to lowest card
     					for (int i = cards.size()-1; i>=0  && !found; i--) {
     						int hT1 = handType.sortCards(this.cards).get(i).getRank().getRankValue();
     						int hT2 = handType.sortCards(o.cards).get(i).getRank().getRankValue();
@@ -137,6 +143,7 @@ public class Player implements Comparable<Player> {
     				
     				break;
     			case OnePair :
+    				//looks which pair is higher
     				if (handType.isOnePairRank(this.cards)>handType.isOnePairRank(o.cards)) {
         				value = 1;
         			} 	
@@ -148,6 +155,7 @@ public class Player implements Comparable<Player> {
         			}
     				break;
     			case TwoPair :
+    				//if the highest pair is the same it will compare the second pair
     				if (handType.isTwoPairRank(this.cards, 2)>handType.isTwoPairRank(o.cards, 2) || 
     						(handType.isTwoPairRank(this.cards, 2)==handType.isTwoPairRank(o.cards, 2)&&
     								handType.isTwoPairRank(this.cards, 1)>handType.isTwoPairRank(o.cards, 1))) {
@@ -162,6 +170,7 @@ public class Player implements Comparable<Player> {
     				
     				break;
     			case ThreeOfAKind :
+    				// looks for the highest three of a kind
     				if (handType.isThreeOfAKindRank(this.cards)>handType.isThreeOfAKindRank(o.cards)) {
         				value = 1;
         			}	
@@ -169,7 +178,9 @@ public class Player implements Comparable<Player> {
         				value = -1;
         			}
     				break;
+    				
     			case FourOfAKind :
+    				//looks for the higher Four Of A Kind
     				if (handType.isThreeOfAKindRank(this.cards)>handType.isThreeOfAKindRank(o.cards)) {
         				value = 1;
         			}
@@ -179,6 +190,7 @@ public class Player implements Comparable<Player> {
     				break;
     				
     			case Straight :
+    				//looks for the higher card in the straight
     				if (handType.isStraightRank(this.cards)>handType.isStraightRank(o.cards)) {
         				value = 1;
         			}
@@ -188,6 +200,7 @@ public class Player implements Comparable<Player> {
     				break;
     				
     			case Flush :
+    				// same as high card, looks for the first highest card
     				{
 					int test = 0;
 					boolean found = false;

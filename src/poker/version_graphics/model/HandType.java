@@ -88,7 +88,8 @@ public enum HandType {
         return firstPairFound && isOnePair(clonedCards);
     }
     
-    
+
+    // returns the Pair ranking. Return can be used to compare with other cards Pair
     
     public static int isTwoPairRank(ArrayList<Card> cards, int pairWish) {
         // Clone the cards, because we will be altering the list

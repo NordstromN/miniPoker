@@ -40,11 +40,13 @@ public class PlayerPane extends FlowPane {
     	
     }
     
-    public void animationWINNER() {
+    // animation for Status (winner, loser, even) changer
+    public void animationStatus() {
     	
     	Timeline time = new Timeline();
     	time.setCycleCount(2);
     	time.setAutoReverse(true);
+    	//animation gets biger and from Transparent to Red
     	KeyValue width = new KeyValue(currentStatus.scaleXProperty(), 2);
     	KeyValue height = new KeyValue(currentStatus.scaleYProperty(), 2);
     	KeyValue fill = new KeyValue(currentStatus.textFillProperty(), Color.RED);
@@ -52,6 +54,7 @@ public class PlayerPane extends FlowPane {
     	 width, height, fill);
     	time.getKeyFrames().add(keyFrame);
     	
+    	// should turn transparent and small again
     	width = new KeyValue(currentStatus.scaleXProperty(), 1);
     	height = new KeyValue(currentStatus.scaleYProperty(), 1);
     	fill = new KeyValue(currentStatus.textFillProperty(), Color.TRANSPARENT);
@@ -63,7 +66,7 @@ public class PlayerPane extends FlowPane {
     	
     }
     
-    
+    // PlayerPane, with Player Name, Current Status, Cards and HandType
     public PlayerPane() {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class
@@ -75,6 +78,7 @@ public class PlayerPane extends FlowPane {
             hboxCards.getChildren().add(lblCard);
         }  
         
+        // set CurrentStatus on Transparent, that it will disappear after the animation
         currentStatus.setStyle("-fx-text-fill: transparent");
        
         StackPane stackPane = new StackPane();
@@ -89,17 +93,20 @@ public class PlayerPane extends FlowPane {
         
 
     }
-    ///////////////////////
+   
+    // Returns Label of Status of current Hand, it must be available from other
+    // classes to change it
     public Label getCurrentStatus() {
     	return this.currentStatus;
     }
-    /////////////////////////
+   
     
     public void setPlayer(Player player) {
     	this.player = player;
     	updatePlayerDisplay(); // Immediately display the player information
     }
     
+    //Updates Player Display
     public void updatePlayerDisplay() {
     	lblName.setText(player.getPlayerName());
     	wonLabel.setText("won: "+player.getWon());

@@ -84,27 +84,30 @@ public class PokerGameView {
 			stage.close();
 		}
 		
+		
+		//Makes animation for player (int i)
 		public void playerAnimation(int i) {
-			getPlayerPane(i).animationWINNER();
+			getPlayerPane(i).animationStatus();
 		}
+		
 	
-	
+		
 		public PlayerPane getPlayerPane(int i) {
 			return (PlayerPane) players.getChildren().get(i);
 		}
-		
-		
-		////////////////////////////////77
+	
+		// Returns the Label of the CurrentStatus, as the Controller needs to setText on this
 		public Label getCurrentStatus(int i) {
 			return getPlayerPane(i).getCurrentStatus();
 		}
-	///////////////////////////77	
+	
 	
 		//Getter methods for the buttons	
 		public Button getShuffleButton() {
 			return controls.btnShuffle;
 		}
 
+		
 		public Button getDealButton() {
 			return controls.btnDeal;
 		}
@@ -117,48 +120,52 @@ public class PokerGameView {
 			return menuBar.newGame;
 		}
 		
+		// Returns the MenuItem of Change Player, as the Controller needs to have connection to this
 		public MenuItem getPlayerSettings() {
 			return menuBar.changePl;
 		}
-		
+
+		// Returns the MenuItem of ColorItem, as the Controller needs to have connection to this
 		public MenuItem getSettingsBox() {
 			return menuBar.changeColourItem;
 		}
 		
-		
+
+		// Returns the MenuItem of Statistics, as the Controller needs to have connection to this
 		public MenuItem getStatistics() {
 			return menuBar.statGameItem;
 		}
 				
+		
 		public PlayerBox getPlayer() {
-			
 			PlayerBox b1 = new PlayerBox();
 			return b1;
-			
 		}
 		
-	
 		
-		
-		
+		// set CSS File on what Settings have been chosen in the Static window SettingsBox.changeSettings()
 		public void setCSSFile() {
 			
 			int i = SettingsBox.changeSettings();
 			
 			switch(i) {
 				
+			//if case 0 than standard
 			case 0:
 				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(
 			                getClass().getResource("poker.css").toExternalForm());
 				
 				break;
+			//if case 1 than second css
 			case 1:
 				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(
 			                getClass().getResource("poker1.css").toExternalForm());
 
 				break;
+				
+				//if case 2 than third css
 			case 2:
 				scene.getStylesheets().clear();
 				  scene.getStylesheets().add(

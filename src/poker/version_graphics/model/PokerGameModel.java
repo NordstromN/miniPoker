@@ -17,10 +17,12 @@ public class PokerGameModel {
 		deck = new DeckOfCards();
 	}
 	
+	//returns the player searched int i
 	public Player getPlayer(int i) {
 		return players.get(i);
 	}
 	
+	// returns the Arraylist of the Current players
 	public ArrayList <Player> getPlayers(){
 		return players;
 	}
@@ -29,51 +31,11 @@ public class PokerGameModel {
 		return deck;
 	}
 	
+	// iterate threw players and opens their method actualizeRound
 	public void actualizePlayers() {
 		for (int i = 0; i<players.size();i++) {
 			players.get(i).actualizeRound(players);
 		}
 	}
-	
-	
-	
-	
-	/*
-	public void checkWinner() {		
-		
-		int playerWonPosition = 0;
-		int secondPlayerPosition = 0;
-		ArrayList<Player> clonePlayers = new ArrayList<Player>();
-		clonePlayers = this.players;
-		
-		Collections.sort(clonePlayers, new Comparator<Player>()
-		{
-			public int compare(Player c1, Player c2)
-			{
-			return Integer.valueOf(c1.compareTo(c2));
-			}
-		});
-		
-		for (int i = 0; i<clonePlayers.size(); i++) {
-			if (clonePlayers.get(clonePlayers.size()-1).equals(this.players.get(i))) {
-				playerWonPosition = i;
-			}
-		}
-		
-		for (int i = 0; i<clonePlayers.size(); i++) {
-			if (clonePlayers.get(clonePlayers.size()-2).equals(this.players.get(i))) {
-				secondPlayerPosition = i;
-			}
-		}	
-		
-		
-		if (players.get(playerWonPosition).compareTo(players.get(secondPlayerPosition))==0) {
-			players.get(playerWonPosition).roundResult(0);
-		} else {
-			players.get(playerWonPosition).roundResult(1);
-		}
-		
-	}	
-	*/
 	
 }

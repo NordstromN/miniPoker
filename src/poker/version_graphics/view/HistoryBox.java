@@ -34,12 +34,14 @@ public class HistoryBox {
 		
 		Label historyText = new Label("");
 		
+		//Creating a Choice Box
 		ChoiceBox<String> choiceBoxPlayer = new ChoiceBox<String>();
+		// adding All players to the Choice Box
 		for (int i = 0; i<players.size(); i++) {
 			choiceBoxPlayer.getItems().add(players.get(i).getPlayerName());
 			}
 		
-		
+		// if User select a Player, this event will happen: setText with the History of the selected Player
 		choiceBoxPlayer.setOnAction((event) ->{
 			for (int i = 0; i<players.size(); i++) {
 				if (choiceBoxPlayer.getValue()== players.get(i).getPlayerName()) {
