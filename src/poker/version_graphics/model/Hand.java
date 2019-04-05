@@ -4,17 +4,15 @@ import java.util.ArrayList;
 
 public class Hand {
 	
-	private ArrayList<Card> cards = new ArrayList<Card>();
+	private HandType handType;
 	private int roundResult = 0;
 
-	public Hand(ArrayList<Card> cards, int roundResult) {
-		this.cards = cards;
+	public Hand(HandType handType, int roundResult) {
+		this.handType = handType;
 		this.roundResult = roundResult;
 	}
 	
-	public ArrayList<Card> getHand(){
-		return this.cards;
-	}
+
 	
 	public int getRoundResult() {
 		return this.roundResult;
@@ -22,13 +20,12 @@ public class Hand {
 	
 	public String toString() {
 		String cardsString ="";
-		cardsString+= "Result: ";
+		cardsString+= "Handtype: \t"+this.handType.name()+"\n";
+		cardsString+= "Result: \t\t";
 		if (roundResult < 0) cardsString += "loss\n";		
 		if (roundResult > 0) cardsString += "win\n";	
 		if (roundResult == 0) cardsString += "even\n";	
-		for (int i = 0; i<cards.size(); i++) {
-			cardsString += cards.get(i) +" | ";
-		}
+		
 		cardsString+= "\n*******************************\n";
 		return cardsString;
 		

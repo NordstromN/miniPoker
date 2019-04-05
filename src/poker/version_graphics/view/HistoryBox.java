@@ -43,7 +43,6 @@ public class HistoryBox {
 			for (int i = 0; i<players.size(); i++) {
 				if (choiceBoxPlayer.getValue()== players.get(i).getPlayerName()) {
 					historyText.setText(players.get(i).getHistory());
-					
 				}
 			}
 		});

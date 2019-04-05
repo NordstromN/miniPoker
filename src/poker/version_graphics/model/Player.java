@@ -7,24 +7,30 @@ import javafx.collections.ObservableList;
 
 public class Player implements Comparable<Player> {
     public static final int HAND_SIZE = 5;
-    private ArrayList<Hand> history = null;
+    private ArrayList<Hand> history = new ArrayList<Hand>();
     private int roundResult;
     //
     private String currentStatus ="";
     private final String playerName; // This is the ID
-    private final ArrayList<Card> cards = new ArrayList<>();
+    private final ArrayList<Card> cards = new ArrayList<Card>();
     private HandType handType;
+    
+    
+    //////////////////////////////
+     
+    
     
     public Player(String playerName) {
         this.playerName = playerName;  
-        this.history = new ArrayList<Hand>();
+        //this.history = new ArrayList<Hand>();
     }
     
     public String getHistory() {
     	String historyString = "";
     	for (int i = 0; i<history.size(); i++) {
-    		historyString += "Round: "+i+"\n";
+    		historyString += "Round: \t\t"+i+"\n";
     		historyString += history.get(i);
+    		
     	}
     	
     	return historyString;
@@ -32,8 +38,11 @@ public class Player implements Comparable<Player> {
     
     public void addCardsToHistory() {
     	//TODO round Won, loss, even
-    	Hand hand = new Hand(this.cards, this.roundResult);
+    	
+    	Hand hand = new Hand(this.handType, this.roundResult);
     	this.history.add(hand);
+    	
+    	//System.out.println(getHistory());
     }
 
     public String getPlayerName() {
@@ -234,6 +243,7 @@ public class Player implements Comparable<Player> {
     public void actualizeRound(ArrayList <Player> players) {
     	// find Player  card in Array List
     	// remove Player
+    	
     	int resultCounter;
     	ArrayList <Player> clonedPlayers = (ArrayList<Player>) players.clone();
     	
@@ -270,6 +280,7 @@ public class Player implements Comparable<Player> {
          		resultCounter = 0;
          	}
     	this.roundResult = resultCounter;
+    	addCardsToHistory();
     	
     }  
     

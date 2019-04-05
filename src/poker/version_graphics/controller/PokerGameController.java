@@ -100,33 +100,33 @@ public class PokerGameController {
         			p.addCard(card);
         		}
         		p.evaluateHand();
+        		
+        		///////////////////////////////////////////////////////////////////////////////
+        		
+        		
+        		///////////////////////////////////////////////////////////////////////////////
+        		
         		PlayerPane pp = view.getPlayerPane(i);
         		pp.updatePlayerDisplay();
         	}
-        	model.actualizePlayers();
         	
-        	////////////////////////
+
         	for (int i=0; i<PokerGame.num_players; i++) {
         		
         		view.getCurrentStatus(i).setText(model.getPlayer(i).getCurrentStatus());
-        		view.playerAnimation(i);
-        		
-        		
-        		
-        		
-        		
-        		
+        		view.playerAnimation(i);   		        		
         	}
-        	////////////////////////77
+
         	for (int i=0; i<PokerGame.num_players; i++) {
         		view.getPlayerPane(i).setTextWonLabel();	
         	}
-        	
-        	
+        	model.actualizePlayers();
         	
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
             alert.showAndWait();
     	}
+    	
+    	
     }
 }
