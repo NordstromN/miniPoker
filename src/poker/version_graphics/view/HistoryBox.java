@@ -40,7 +40,12 @@ public class HistoryBox {
 		
 		
 		choiceBoxPlayer.setOnAction((event) ->{
-			historyText.setText(players.get(0).getHistory());
+			for (int i = 0; i<players.size(); i++) {
+				if (choiceBoxPlayer.getValue()== players.get(i).getPlayerName()) {
+					historyText.setText(players.get(i).getHistory());
+					
+				}
+			}
 		});
 		
 		VBox vBox = new VBox();
