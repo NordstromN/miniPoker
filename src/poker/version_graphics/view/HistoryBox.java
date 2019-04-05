@@ -3,6 +3,7 @@ package poker.version_graphics.view;
 import java.util.ArrayList;
 
 import javafx.event.Event;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,7 +27,7 @@ public class HistoryBox {
 		historyStage.initModality(Modality.APPLICATION_MODAL);
 		historyStage.setTitle("History");
 		historyStage.setMinWidth(400);
-		historyStage.setMinHeight(400);
+		historyStage.setMinHeight(700);
 		
 		Label historyLabel = new Label("History, Choose Player wanted: ");
 		historyLabel.setStyle("-fx-font-size: 20px ; -fx-font-weight: bold");
@@ -47,8 +48,11 @@ public class HistoryBox {
 			}
 		});
 		
+		
 		VBox vBox = new VBox();
 		vBox.getChildren().addAll(historyLabel, choiceBoxPlayer, historyText);
+		vBox.setAlignment(Pos.TOP_CENTER);
+		vBox.setSpacing(15);
 		vBox.setSpacing(20);
 		Scene scene = new Scene (vBox);
 		

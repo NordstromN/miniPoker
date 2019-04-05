@@ -16,10 +16,6 @@ public class Player implements Comparable<Player> {
     private HandType handType;
     
     
-    //////////////////////////////
-     
-    
-    
     public Player(String playerName) {
         this.playerName = playerName;  
         //this.history = new ArrayList<Hand>();
@@ -285,7 +281,7 @@ public class Player implements Comparable<Player> {
     }  
     
     // TEST Methoden delete
-    
+    /*
     public void addCard(Card c1, Card c2, Card c3, Card c4, Card c5) {
     	cards.add(c1);   
     	cards.add(c2);   
@@ -293,6 +289,7 @@ public class Player implements Comparable<Player> {
     	cards.add(c4);   
     	cards.add(c5);   
     }
+    */
     
     public void printCard() {
     	for (Card currentCard : cards) {

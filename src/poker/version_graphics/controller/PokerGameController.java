@@ -101,15 +101,11 @@ public class PokerGameController {
         		}
         		p.evaluateHand();
         		
-        		///////////////////////////////////////////////////////////////////////////////
-        		
-        		
-        		///////////////////////////////////////////////////////////////////////////////
         		
         		PlayerPane pp = view.getPlayerPane(i);
         		pp.updatePlayerDisplay();
         	}
-        	
+        	model.actualizePlayers();
 
         	for (int i=0; i<PokerGame.num_players; i++) {
         		
@@ -120,7 +116,7 @@ public class PokerGameController {
         	for (int i=0; i<PokerGame.num_players; i++) {
         		view.getPlayerPane(i).setTextWonLabel();	
         	}
-        	model.actualizePlayers();
+        	
         	
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
